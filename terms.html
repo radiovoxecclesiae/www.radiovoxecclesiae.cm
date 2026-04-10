@@ -133,15 +133,7 @@
     }
     .legal-section a:focus-visible { outline: 2px solid var(--brand-secondary-container); outline-offset: 2px; border-radius: 2px; }
 
-    .back-link {
-      display: inline-flex; align-items: center; gap: 0.375rem;
-      color: var(--brand-secondary-container); font-weight: 500;
-      margin-bottom: var(--space-lg); transition: opacity var(--transition-fast);
-    }
-    .back-link:hover { opacity: 0.8; }
-    .back-link:focus-visible { outline: 2px solid var(--brand-secondary-container); outline-offset: 2px; border-radius: 2px; }
-
-    /* Footer */
+/* Footer */
     #site-footer {
       background: rgba(0,0,0,0.25); border-top: 1px solid var(--surface-card-border);
       padding-block: var(--space-md); text-align: center;
@@ -187,14 +179,7 @@
   <main id="main-content">
     <div class="container">
 
-      <a href="./index.html" class="back-link">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
-          <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
-        </svg>
-        <span data-i18n="backToHome"></span>
-      </a>
-
-      <div class="legal-page__header">
+<div class="legal-page__header">
         <h1 data-i18n="termsTitle"></h1>
         <p class="legal-page__date" data-i18n="termsDate"></p>
       </div>
@@ -241,7 +226,6 @@
         © <span id="footer-year"></span> <span data-i18n="footerCopyrightPrefix"></span>
       </p>
       <nav class="footer__links" aria-label="Liens légaux">
-        <a id="footer-home-link" class="footer__link" href="./index.html" data-i18n="footerHome"></a>
         <a id="footer-privacy-link" class="footer__link" href="./privacy.html" data-i18n="footerPrivacy"></a>
         <a id="footer-terms-link" class="footer__link" href="./terms.html" data-i18n="footerTerms"></a>
       </nav>
@@ -250,6 +234,8 @@
 
   <script>
     'use strict';
+
+    var IS_DEV = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
 
     const CONFIG = {
       station: {
@@ -268,7 +254,6 @@
         fr: {
           langToggleLabel: 'Passer en anglais',
           langToggleText: 'EN',
-          backToHome: 'Retour à l\'accueil',
           termsPageTitle: 'Conditions d\'utilisation — Radio Vox Ecclesiae',
           termsTitle: 'Conditions d\'utilisation',
           termsDate: 'Dernière mise à jour : janvier 2024',
@@ -283,14 +268,12 @@
           termsSec5Title: 'Droit applicable et contact',
           termsSec5Body: 'Les présentes conditions sont régies par le droit camerounais. Tout litige sera soumis à la juridiction compétente de Bafoussam, Cameroun. Pour toute question, contactez-nous à :',
           footerCopyrightPrefix: 'Radio Vox Ecclesiae. Tous droits réservés.',
-          footerHome: 'Accueil',
           footerPrivacy: 'Politique de confidentialité',
           footerTerms: 'Conditions d\'utilisation',
         },
         en: {
           langToggleLabel: 'Switch to French',
           langToggleText: 'FR',
-          backToHome: 'Back to home',
           termsPageTitle: 'Terms of Service — Radio Vox Ecclesiae',
           termsTitle: 'Terms of Service',
           termsDate: 'Last updated: January 2024',
@@ -305,7 +288,6 @@
           termsSec5Title: 'Governing Law and Contact',
           termsSec5Body: 'These terms are governed by Cameroonian law. Any dispute shall be submitted to the competent jurisdiction of Bafoussam, Cameroon. For any questions, contact us at:',
           footerCopyrightPrefix: 'Radio Vox Ecclesiae. All rights reserved.',
-          footerHome: 'Home',
           footerPrivacy: 'Privacy Policy',
           footerTerms: 'Terms of Service',
         },
@@ -358,7 +340,7 @@
       logo.src = CONFIG.station.logoUrl;
       logo.addEventListener('error', function () {
         this.style.display = 'none';
-        console.error('[logo] Échec du chargement :', this.src);
+        if (IS_DEV) console.error('[logo] Échec du chargement :', this.src);
       });
     }
 
