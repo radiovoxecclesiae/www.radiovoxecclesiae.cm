@@ -1,0 +1,1406 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#011449">
+  <meta name="description" content="Radio Vox Ecclesiae — La voix de l'Église catholique du Diocèse de Bafoussam. Écoutez en ligne ou téléchargez l'application.">
+  <meta name="geo.region" content="CM-OU">
+  <meta name="geo.placename" content="Bafoussam, Cameroun">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://radiovoxecclesiae.cm/">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="./images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="./images/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="./images/icon-192.png">
+  <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+
+  <!-- Web App Manifest -->
+  <link rel="manifest" href="./site.webmanifest">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Radio Vox Ecclesiae">
+  <meta property="og:title" content="Radio Vox Ecclesiae — La voix de l'Église | 97.3 FM Bafoussam">
+  <meta property="og:description" content="Radio catholique du Diocèse de Bafoussam. Évangélisation, éducation et culture. 97.3 / 103.7 / 105.8 FM.">
+  <meta property="og:url" content="https://radiovoxecclesiae.cm/">
+  <meta property="og:locale" content="fr_CM">
+  <meta property="og:image" content="https://radiovoxecclesiae.cm/images/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Radio Vox Ecclesiae — La voix de l'Église">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Radio Vox Ecclesiae — La voix de l'Église | 97.3 FM Bafoussam">
+  <meta name="twitter:description" content="Radio catholique du Diocèse de Bafoussam. 97.3 / 103.7 / 105.8 FM.">
+  <meta name="twitter:image" content="https://radiovoxecclesiae.cm/images/og-image.png">
+
+  <title>Radio Vox Ecclesiae — La voix de l'Église | 97.3 FM Bafoussam</title>
+
+  <!-- JSON-LD Structured Data — RadioStation schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "RadioStation",
+    "name": "Radio Vox Ecclesiae",
+    "url": "https://radiovoxecclesiae.cm/",
+    "logo": "https://radiovoxecclesiae.cm/images/logo.png",
+    "image": "https://radiovoxecclesiae.cm/images/og-image.png",
+    "description": "Radio catholique officielle du Diocèse de Bafoussam, Cameroun. Évangélisation, éducation et culture.",
+    "broadcastFrequency": [
+      { "@type": "BroadcastFrequencySpecification", "broadcastFrequencyValue": "97.3", "broadcastSignalModulation": "FM" },
+      { "@type": "BroadcastFrequencySpecification", "broadcastFrequencyValue": "103.7", "broadcastSignalModulation": "FM" },
+      { "@type": "BroadcastFrequencySpecification", "broadcastFrequencyValue": "105.8", "broadcastSignalModulation": "FM" }
+    ],
+    "areaServed": {
+      "@type": "AdministrativeArea",
+      "name": "Diocèse de Bafoussam",
+      "containedInPlace": {
+        "@type": "Country",
+        "name": "Cameroun"
+      }
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "contact@radiovoxecclesiae.cm",
+      "contactType": "customer service"
+    },
+    "sameAs": [
+      "https://facebook.com/radiovoxecclesiae"
+    ]
+  }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&family=DM+Sans:wght@400;500&display=swap">
+
+  <style>
+    /* =========================================================
+       CSS Custom Properties — Brand Palette
+       ========================================================= */
+    :root {
+      /* Brand colors */
+      --brand-primary: #011449;
+      --brand-primary-container: #1A2A5E;
+      --brand-secondary-container: #FDC656;
+      --brand-icon: #C8972A;
+      --brand-on-primary: #FFFFFF;
+
+      /* Derived surfaces */
+      --surface-card: rgba(255, 255, 255, 0.05);
+      --surface-card-border: rgba(255, 255, 255, 0.1);
+      --surface-card-hover: rgba(255, 255, 255, 0.08);
+      --text-muted: rgba(255, 255, 255, 0.7);
+      --brand-secondary-glow: rgba(253, 198, 86, 0.3);
+      --shadow-elevation: rgba(0, 0, 0, 0.3);
+
+      /* Typography */
+      --font-heading: 'Noto Serif', Georgia, serif;
+      --font-body: 'DM Sans', system-ui, sans-serif;
+
+      /* Spacing scale */
+      --space-xs: 0.5rem;
+      --space-sm: 1rem;
+      --space-md: 1.5rem;
+      --space-lg: 2rem;
+      --space-xl: 3rem;
+      --space-2xl: 4rem;
+
+      /* Layout */
+      --container-max: 960px;
+      --gutter: 24px;
+
+      /* Border radius */
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-full: 999px;
+
+      /* Transitions */
+      --transition-fast: 150ms ease;
+      --transition-base: 250ms ease;
+    }
+
+    /* =========================================================
+       Reset minimal
+       ========================================================= */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--brand-on-primary);
+      background: linear-gradient(180deg, var(--brand-primary) 0%, var(--brand-primary-container) 100%);
+      background-attachment: fixed;
+      min-height: 100vh;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      cursor: pointer;
+      font-family: inherit;
+      border: none;
+      background: none;
+    }
+
+    /* =========================================================
+       Skip to content — WCAG 2.4.1 niveau A
+       ========================================================= */
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: var(--space-xs);
+      z-index: 200;
+      padding: 0.5rem 1rem;
+      background: var(--brand-secondary-container);
+      color: var(--brand-primary);
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 0.875rem;
+      border-radius: 4px;
+      text-decoration: none;
+    }
+
+    .skip-link:focus {
+      left: var(--space-sm);
+    }
+
+    /* =========================================================
+       Layout utilitaire
+       ========================================================= */
+    .container {
+      width: 100%;
+      max-width: var(--container-max);
+      margin-inline: auto;
+      padding-inline: var(--gutter);
+    }
+
+    /* =========================================================
+       Animations — page load stagger (fade + slide-up)
+       ========================================================= */
+    @keyframes fade-slide-up {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes pulse-ring {
+      0% {
+        transform: scale(1);
+        opacity: 0.6;
+      }
+      100% {
+        transform: scale(1.75);
+        opacity: 0;
+      }
+    }
+
+    @keyframes spin-slow {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+
+    .animate-in {
+      animation: fade-slide-up 0.6s ease both;
+    }
+
+    #hero          { animation-delay:   0ms; }
+    #listen        { animation-delay: 100ms; }
+    #download      { animation-delay: 200ms; }
+    #about         { animation-delay: 300ms; }
+    #contact       { animation-delay: 400ms; }
+
+    /* =========================================================
+       Header sticky
+       ========================================================= */
+    #site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--brand-primary);
+      border-bottom: 1px solid var(--surface-card-border);
+      box-shadow: 0 2px 16px var(--shadow-elevation);
+    }
+
+    .header__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-sm);
+      padding-block: var(--space-sm);
+    }
+
+    .header__brand {
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
+      min-width: 0;
+    }
+
+    .header__logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .header__station-name {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--brand-on-primary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* Bouton toggle Fr/En */
+    #lang-toggle {
+      flex-shrink: 0;
+      padding: 0.375rem 0.875rem;
+      border: 1.5px solid var(--brand-secondary-container);
+      border-radius: var(--radius-full);
+      background: transparent;
+      color: var(--brand-secondary-container);
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      transition: background var(--transition-fast), color var(--transition-fast);
+    }
+
+    #lang-toggle:hover {
+      background: var(--brand-secondary-container);
+      color: var(--brand-primary);
+    }
+
+    #lang-toggle:focus-visible {
+      outline: 2px solid var(--brand-secondary-container);
+      outline-offset: 3px;
+    }
+
+    /* =========================================================
+       Main
+       ========================================================= */
+    main {
+      padding-block: var(--space-xl);
+    }
+
+    section {
+      padding-block: var(--space-lg);
+    }
+
+    section + section {
+      border-top: 1px solid var(--surface-card-border);
+    }
+
+    .section__title {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--brand-on-primary);
+      margin-bottom: var(--space-md);
+      text-align: center;
+    }
+
+    .section__desc {
+      font-size: 1rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      text-align: center;
+      margin-bottom: var(--space-lg);
+      max-width: 60ch;
+      margin-inline: auto;
+    }
+
+    /* =========================================================
+       Hero
+       ========================================================= */
+    #hero {
+      text-align: center;
+      padding-block: var(--space-2xl);
+    }
+
+    .hero__logo-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: var(--space-md);
+    }
+
+    .hero__logo {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 0 0 4px var(--brand-secondary-glow);
+    }
+
+    #hero-title {
+      font-family: var(--font-heading);
+      font-size: 2.5rem;
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--brand-on-primary);
+      margin-bottom: var(--space-sm);
+    }
+
+    .hero__diocese {
+      font-size: 1rem;
+      color: var(--text-muted);
+      margin-bottom: var(--space-md);
+    }
+
+    .hero__frequencies {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: var(--space-xs);
+    }
+
+    .frequency-badge {
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 0.875rem;
+      color: var(--brand-primary);
+      background: var(--brand-secondary-container);
+      padding: 0.25rem 0.75rem;
+      border-radius: var(--radius-full);
+      letter-spacing: 0.03em;
+    }
+
+    /* =========================================================
+       Section Listen — CTA avec pulse-ring
+       ========================================================= */
+    #listen {
+      text-align: center;
+    }
+
+    .listen__cta-wrap {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: var(--space-sm);
+    }
+
+    /* Anneaux pulsants — deux cercles concentriques en or */
+    .listen__cta-wrap::before,
+    .listen__cta-wrap::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: var(--radius-full);
+      border: 2px solid var(--brand-secondary-container);
+      animation: pulse-ring 2s ease-out infinite;
+      pointer-events: none;
+    }
+
+    .listen__cta-wrap::after {
+      animation-delay: 0.8s;
+    }
+
+    .listen__btn {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      padding: 1rem 2.25rem;
+      background: var(--brand-secondary-container);
+      color: var(--brand-primary);
+      font-family: var(--font-body);
+      font-size: 1.125rem;
+      font-weight: 500;
+      border-radius: var(--radius-full);
+      border: none;
+      text-decoration: none;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+      white-space: nowrap;
+    }
+
+    .listen__btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px var(--brand-secondary-glow);
+    }
+
+    .listen__btn:focus-visible {
+      outline: 2px solid var(--brand-secondary-container);
+      outline-offset: 4px;
+    }
+
+    .listen__btn-icon {
+      width: 20px;
+      height: 20px;
+      fill: var(--brand-primary);
+      flex-shrink: 0;
+    }
+
+    /* =========================================================
+       Section Download — badges App Store / Play Store
+       ========================================================= */
+    #download {
+      text-align: center;
+    }
+
+    .download__badges {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: var(--space-sm);
+    }
+
+    .store-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem 1.5rem;
+      border: 1.5px solid var(--brand-secondary-container);
+      border-radius: var(--radius-md);
+      color: var(--brand-on-primary);
+      background: var(--surface-card);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      transition: background var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+      text-align: left;
+      text-decoration: none;
+    }
+
+    .store-badge:hover {
+      background: var(--surface-card-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px var(--shadow-elevation);
+    }
+
+    .store-badge:focus-visible {
+      outline: 2px solid var(--brand-secondary-container);
+      outline-offset: 3px;
+    }
+
+    .store-badge__icon {
+      width: 32px;
+      height: 32px;
+      flex-shrink: 0;
+      fill: var(--brand-on-primary);
+    }
+
+    .store-badge__text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .store-badge__label {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      line-height: 1;
+    }
+
+    .store-badge__name {
+      font-size: 1.05rem;
+      font-weight: 500;
+      line-height: 1.3;
+      color: var(--brand-on-primary);
+    }
+
+    /* =========================================================
+       Section About — description + 2 mission cards
+       ========================================================= */
+    .mission-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-sm);
+      margin-top: var(--space-md);
+    }
+
+    .mission-card {
+      background: var(--surface-card);
+      border: 1px solid var(--surface-card-border);
+      border-radius: var(--radius-md);
+      padding: var(--space-md);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-xs);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      transition: background var(--transition-base), transform var(--transition-base);
+    }
+
+    .mission-card:hover {
+      background: var(--surface-card-hover);
+      transform: translateY(-2px);
+    }
+
+    .mission-card__icon {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-sm);
+      background: var(--brand-secondary-glow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .mission-card__icon svg {
+      width: 22px;
+      height: 22px;
+      fill: var(--brand-secondary-container);
+    }
+
+    .mission-card__title {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--brand-on-primary);
+    }
+
+    .mission-card__desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* =========================================================
+       Section Contact — cards WhatsApp, Facebook, Email, Adresse
+       ========================================================= */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-sm);
+    }
+
+    .contact-card {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      background: var(--surface-card);
+      border: 1px solid var(--surface-card-border);
+      border-radius: var(--radius-md);
+      padding: var(--space-sm) var(--space-md);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      transition: background var(--transition-base), transform var(--transition-base);
+      text-decoration: none;
+      color: var(--brand-on-primary);
+    }
+
+    .contact-card--link:hover {
+      background: var(--surface-card-hover);
+      transform: translateY(-2px);
+    }
+
+    .contact-card--link:focus-visible {
+      outline: 2px solid var(--brand-secondary-container);
+      outline-offset: 3px;
+    }
+
+    .contact-card__icon {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .contact-card__icon--whatsapp { background: rgba(37, 211, 102, 0.15); }
+    .contact-card__icon--facebook { background: rgba(24, 119, 242, 0.15); }
+    .contact-card__icon--email    { background: rgba(253, 198, 86, 0.15); }
+    .contact-card__icon--address  { background: rgba(255, 255, 255, 0.08); }
+
+    .contact-card__icon svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .contact-card__icon--whatsapp svg { fill: #25D366; }
+    .contact-card__icon--facebook svg { fill: #1877F2; }
+    .contact-card__icon--email    svg { fill: var(--brand-secondary-container); }
+    .contact-card__icon--address  svg { fill: var(--text-muted); }
+
+    .contact-card__body {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .contact-card__label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      line-height: 1;
+    }
+
+    .contact-card__value {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--brand-on-primary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* =========================================================
+       Footer
+       ========================================================= */
+    #site-footer {
+      background: rgba(0, 0, 0, 0.25);
+      border-top: 1px solid var(--surface-card-border);
+      padding-block: var(--space-md);
+      text-align: center;
+    }
+
+    .footer__inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-xs);
+    }
+
+    .footer__copyright {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+
+    .footer__links {
+      display: flex;
+      gap: var(--space-md);
+    }
+
+    .footer__link {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      transition: color var(--transition-fast);
+    }
+
+    .footer__link:hover {
+      color: var(--brand-secondary-container);
+    }
+
+    .footer__link:focus-visible {
+      outline: 2px solid var(--brand-secondary-container);
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
+
+    /* =========================================================
+       Responsive — Tablet 768px+
+       ========================================================= */
+    @media (min-width: 768px) {
+      .header__station-name {
+        font-size: 1.125rem;
+      }
+
+      #hero-title {
+        font-size: 3rem;
+      }
+
+      .section__title {
+        font-size: 2.25rem;
+      }
+
+      .mission-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .footer__inner {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+
+    /* =========================================================
+       Responsive — Desktop 1280px+
+       ========================================================= */
+    @media (min-width: 1280px) {
+      #hero-title {
+        font-size: 4rem;
+      }
+
+      .hero__logo {
+        width: 120px;
+        height: 120px;
+      }
+
+      .section__title {
+        font-size: 2.25rem;
+      }
+    }
+
+    /* =========================================================
+       Accessibilité — respecter prefers-reduced-motion
+       ========================================================= */
+    @media (prefers-reduced-motion: reduce) {
+      .animate-in {
+        animation: none;
+      }
+      .listen__cta-wrap::before,
+      .listen__cta-wrap::after {
+        animation: none;
+      }
+    }
+
+    /* =========================================================
+       Transition i18n — crossfade sur le texte traduit
+       ========================================================= */
+    [data-i18n] {
+      transition: opacity var(--transition-base);
+    }
+
+    body.lang-switching [data-i18n] {
+      opacity: 0;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Skip to content — WCAG 2.4.1 niveau A -->
+  <a href="#main-content" class="skip-link" data-i18n="skipLinkLabel">Passer au contenu principal</a>
+
+  <!-- ============================================================
+       HEADER — sticky, logo + nom station + toggle Fr/En
+       ============================================================ -->
+  <header id="site-header">
+    <div class="container header__inner">
+      <div class="header__brand">
+        <img
+          id="site-logo-header"
+          class="header__logo"
+          alt="Logo Radio Vox Ecclesiae"
+          width="40"
+          height="40"
+        >
+        <span class="header__station-name">Radio Vox Ecclesiae</span>
+      </div>
+
+      <button
+        id="lang-toggle"
+        title="Changer de langue / Switch language"
+      >EN</button>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       MAIN
+       ============================================================ -->
+  <main id="main-content">
+
+    <!-- ===================================================
+         SECTION 1 — Hero
+         =================================================== -->
+    <section id="hero" class="animate-in" aria-labelledby="hero-title">
+      <div class="container">
+
+        <div class="hero__logo-wrap">
+          <img
+            id="site-logo-hero"
+            class="hero__logo"
+            alt="Logo Radio Vox Ecclesiae"
+            width="96"
+            height="96"
+          >
+        </div>
+
+        <h1 id="hero-title" data-i18n="heroSlogan"></h1>
+
+        <p class="hero__diocese" data-i18n="heroDiocese"></p>
+
+        <div
+          id="hero-frequencies"
+          class="hero__frequencies"
+          aria-label="Fréquences FM"
+          data-i18n-aria="frequenciesLabel"
+        >
+          <!-- Badges injectés dynamiquement depuis CONFIG.station.frequencies -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===================================================
+         SECTION 2 — Listen on Web
+         =================================================== -->
+    <section id="listen" class="animate-in" aria-labelledby="listen-title">
+      <div class="container">
+
+        <h2 id="listen-title" class="section__title" data-i18n="listenTitle"></h2>
+
+        <p class="section__desc" data-i18n="listenDescription"></p>
+
+        <div class="listen__cta-wrap">
+          <a
+            id="listen-btn"
+            class="listen__btn"
+            href=""
+            target="_blank"
+            rel="noopener noreferrer"
+            data-i18n-aria="listenBtnLabel"
+          >
+            <!-- Icône play -->
+            <svg class="listen__btn-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+            <span data-i18n="listenCta"></span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===================================================
+         SECTION 3 — Download App
+         =================================================== -->
+    <section id="download" class="animate-in" aria-labelledby="download-title">
+      <div class="container">
+
+        <h2 id="download-title" class="section__title" data-i18n="downloadTitle"></h2>
+
+        <p class="section__desc" data-i18n="downloadDescription"></p>
+
+        <div class="download__badges">
+
+          <!-- App Store -->
+          <a
+            id="appstore-btn"
+            class="store-badge"
+            href=""
+            target="_blank"
+            rel="noopener noreferrer"
+            data-i18n-aria="downloadAppStoreLabel"
+          >
+            <!-- Apple logo SVG inline -->
+            <svg class="store-badge__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+            </svg>
+            <div class="store-badge__text">
+              <span class="store-badge__label" data-i18n="downloadOnLabel"></span>
+              <span class="store-badge__name">App Store</span>
+            </div>
+          </a>
+
+          <!-- Play Store -->
+          <a
+            id="playstore-btn"
+            class="store-badge"
+            href=""
+            target="_blank"
+            rel="noopener noreferrer"
+            data-i18n-aria="downloadPlayStoreLabel"
+          >
+            <!-- Google Play logo SVG inline -->
+            <svg class="store-badge__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M3 20.5v-17c0-.83.94-1.3 1.6-.8l14 8.5c.6.37.6 1.23 0 1.6l-14 8.5c-.66.5-1.6.03-1.6-.8z" fill="#4CAF50"/>
+              <path d="M3 20.5v-8.5l8.5 8.5H3.1c-.06 0-.1-.04-.1-.1v.1z" fill="#1565C0"/>
+              <path d="M3 12l8.5-8.5H3.1c-.06 0-.1.04-.1.1v8.4z" fill="#FF3D00"/>
+              <path d="M11.5 12l6 6-9-5.5 3-0.5z" fill="#FFC107"/>
+            </svg>
+            <div class="store-badge__text">
+              <span class="store-badge__label" data-i18n="downloadGetOnLabel"></span>
+              <span class="store-badge__name">Google Play</span>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================
+         SECTION 4 — About
+         =================================================== -->
+    <section id="about" class="animate-in" aria-labelledby="about-title">
+      <div class="container">
+
+        <h2 id="about-title" class="section__title" data-i18n="aboutTitle"></h2>
+
+        <p class="section__desc" data-i18n="aboutDescription"></p>
+
+        <div class="mission-grid">
+
+          <!-- Mission card 1 — Évangélisation -->
+          <div class="mission-card">
+            <div class="mission-card__icon" aria-hidden="true">
+              <!-- Icône croix / évangélisation -->
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M11 2h2v7h7v2h-7v7h-2v-7H4v-2h7z"/>
+              </svg>
+            </div>
+            <h3 class="mission-card__title" data-i18n="missionCard1Title"></h3>
+            <p class="mission-card__desc" data-i18n="missionCard1Desc"></p>
+          </div>
+
+          <!-- Mission card 2 — Éducation -->
+          <div class="mission-card">
+            <div class="mission-card__icon" aria-hidden="true">
+              <!-- Icône livre / éducation -->
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/>
+              </svg>
+            </div>
+            <h3 class="mission-card__title" data-i18n="missionCard2Title"></h3>
+            <p class="mission-card__desc" data-i18n="missionCard2Desc"></p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================
+         SECTION 5 — Contact
+         =================================================== -->
+    <section id="contact" class="animate-in" aria-labelledby="contact-title">
+      <div class="container">
+
+        <h2 id="contact-title" class="section__title" data-i18n="contactTitle"></h2>
+
+        <div class="contact-grid">
+
+          <!-- WhatsApp -->
+          <a
+            id="contact-whatsapp"
+            class="contact-card contact-card--link"
+            href=""
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="contact-card__icon contact-card__icon--whatsapp" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+            </div>
+            <div class="contact-card__body">
+              <span class="contact-card__label" data-i18n="contactWhatsapp"></span>
+              <span class="contact-card__value" id="contact-whatsapp-value"></span>
+            </div>
+          </a>
+
+          <!-- Facebook -->
+          <a
+            id="contact-facebook"
+            class="contact-card contact-card--link"
+            href=""
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="contact-card__icon contact-card__icon--facebook" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+            </div>
+            <div class="contact-card__body">
+              <span class="contact-card__label" data-i18n="contactFacebook"></span>
+              <span class="contact-card__value" id="contact-facebook-value"></span>
+            </div>
+          </a>
+
+          <!-- Email -->
+          <a
+            id="contact-email"
+            class="contact-card contact-card--link"
+            href=""
+          >
+            <div class="contact-card__icon contact-card__icon--email" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+              </svg>
+            </div>
+            <div class="contact-card__body">
+              <span class="contact-card__label" data-i18n="contactEmail"></span>
+              <span class="contact-card__value" id="contact-email-value"></span>
+            </div>
+          </a>
+
+          <!-- Adresse -->
+          <div class="contact-card">
+            <div class="contact-card__icon contact-card__icon--address" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+              </svg>
+            </div>
+            <div class="contact-card__body">
+              <span class="contact-card__label" data-i18n="contactAddress"></span>
+              <span class="contact-card__value" id="contact-address-value"></span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer id="site-footer">
+    <div class="container footer__inner">
+      <p class="footer__copyright">
+        © <span id="footer-year"></span> <span data-i18n="footerCopyrightPrefix"></span>
+      </p>
+      <nav class="footer__links" aria-label="Liens légaux">
+        <a
+          id="footer-privacy-link"
+          class="footer__link"
+          data-i18n="footerPrivacy"
+        ></a>
+        <a
+          id="footer-terms-link"
+          class="footer__link"
+          data-i18n="footerTerms"
+        ></a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       SCRIPT — CONFIG (source de vérité unique) + i18n + init
+       ============================================================ -->
+  <script>
+    'use strict';
+
+    /* ===========================================================
+       CONFIG — SINGLE SOURCE OF TRUTH
+       Toutes les URLs, contacts et chaînes de texte viennent ici.
+       Aucun URL ni copie n'est codé en dur dans le HTML.
+       =========================================================== */
+    const CONFIG = {
+      station: {
+        name: 'Radio Vox Ecclesiae',
+        logoUrl: './images/logo.png',
+        appUrl: 'https://app.radiovoxecclesiae.cm/',
+        apiUrl: 'https://api.radiovoxecclesiae.cm/api/v1/app-config',
+        frequencies: ['97.3', '103.7', '105.8'],
+        canonicalUrl: 'https://radiovoxecclesiae.cm/',
+        ogImageUrl: './images/og-image.png',
+      },
+
+      contact: {
+        whatsapp: 'https://whatsapp.com/channel/0029VbBU76AHgZWcn3WWNA0L',
+        whatsappDisplay: '+237 6 90 06 03 01',
+        facebook: 'https://www.facebook.com/radiovoxecclesiae',
+        facebookDisplay: 'Radio Vox Ecclesiae',
+        email: 'radiovoxecclesiae@gmail.com',
+        address: 'Bafoussam II, Cameroun',
+      },
+
+      links: {
+        appStore: 'https://apps.apple.com',
+        playStore: 'https://play.google.com/store',
+        privacy: './privacy.html',
+        terms: './terms.html',
+      },
+
+      /* -------------------------------------------------------
+         i18n — Toutes les chaînes de l'interface.
+         Clés identiques entre fr et en.
+         ------------------------------------------------------- */
+      i18n: {
+        fr: {
+          /* Header */
+          langToggleLabel: 'Passer en anglais',
+          langToggleText: 'EN',
+
+          /* Skip link */
+          skipLinkLabel: 'Passer au contenu principal',
+
+          /* Hero */
+          heroSlogan: 'La voix de l\'Église',
+          heroDiocese: 'Diocèse de Bafoussam — Cameroun',
+
+          /* Hero — aria */
+          frequenciesLabel: 'Fréquences FM',
+
+          /* Section Listen */
+          listenTitle: 'Écouter en ligne',
+          listenCta: 'Ouvrir le lecteur',
+          listenDescription: 'Écoutez Radio Vox Ecclesiae en direct depuis votre navigateur.',
+          listenBtnLabel: 'Ouvrir le lecteur Radio Vox Ecclesiae dans un nouvel onglet',
+
+          /* Section Download */
+          downloadTitle: 'Télécharger l\'application',
+          downloadDescription: 'Disponible sur iOS et Android.',
+          downloadOnLabel: 'Télécharger sur',
+          downloadGetOnLabel: 'Disponible sur',
+          downloadAppStoreLabel: 'Télécharger sur l\'App Store',
+          downloadPlayStoreLabel: 'Télécharger sur Google Play',
+
+          /* Section About */
+          aboutTitle: 'À propos',
+          aboutDescription: 'La voix de l\'Église — la radio de l\'évangélisation, la radio de l\'Église catholique à Bafoussam. Diffusion quotidienne de la messe, des prières et de programmes éducatifs.',
+          missionCard1Title: 'Évangélisation',
+          missionCard1Desc: 'Diffusion quotidienne de la messe et des prières.',
+          missionCard2Title: 'Éducation',
+          missionCard2Desc: 'Programmes de formation civique et sanitaire.',
+
+          /* Section Contact */
+          contactTitle: 'Nous contacter',
+          contactWhatsapp: 'WhatsApp',
+          contactFacebook: 'Facebook',
+          contactEmail: 'Email',
+          contactAddress: 'Adresse',
+
+          /* Footer */
+          footerCopyrightPrefix: 'Radio Vox Ecclesiae. Tous droits réservés.',
+          footerPrivacy: 'Politique de confidentialité',
+          footerTerms: 'Conditions d\'utilisation',
+        },
+
+        en: {
+          /* Header */
+          langToggleLabel: 'Switch to French',
+          langToggleText: 'FR',
+
+          /* Skip link */
+          skipLinkLabel: 'Skip to main content',
+
+          /* Hero */
+          heroSlogan: 'The Voice of the Church',
+          heroDiocese: 'Diocese of Bafoussam — Cameroon',
+
+          /* Hero — aria */
+          frequenciesLabel: 'FM Frequencies',
+
+          /* Section Listen */
+          listenTitle: 'Listen Online',
+          listenCta: 'Open Player',
+          listenDescription: 'Listen to Radio Vox Ecclesiae live from your browser.',
+          listenBtnLabel: 'Open Radio Vox Ecclesiae player in a new tab',
+
+          /* Section Download */
+          downloadTitle: 'Download the App',
+          downloadDescription: 'Available on iOS and Android.',
+          downloadOnLabel: 'Download on the',
+          downloadGetOnLabel: 'Get it on',
+          downloadAppStoreLabel: 'Download on the App Store',
+          downloadPlayStoreLabel: 'Get it on Google Play',
+
+          /* Section About */
+          aboutTitle: 'About',
+          aboutDescription: 'The Voice of the Church — the radio of evangelization, the Catholic Church radio in Bafoussam. Daily broadcast of Mass, prayers and educational programmes.',
+          missionCard1Title: 'Evangelization',
+          missionCard1Desc: 'Daily broadcast of Mass and prayers.',
+          missionCard2Title: 'Education',
+          missionCard2Desc: 'Civic and health education programmes.',
+
+          /* Section Contact */
+          contactTitle: 'Contact Us',
+          contactWhatsapp: 'WhatsApp',
+          contactFacebook: 'Facebook',
+          contactEmail: 'Email',
+          contactAddress: 'Address',
+
+          /* Footer */
+          footerCopyrightPrefix: 'Radio Vox Ecclesiae. All rights reserved.',
+          footerPrivacy: 'Privacy Policy',
+          footerTerms: 'Terms of Service',
+        },
+      },
+    };
+
+    /* ===========================================================
+       État global de la langue
+       =========================================================== */
+    let currentLang = 'fr';
+
+    /* ===========================================================
+       Logging conditionnel — production-safe
+       =========================================================== */
+    var IS_DEV = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+    function devWarn() { if (IS_DEV) console.warn.apply(console, arguments); }
+    function devError() { if (IS_DEV) console.error.apply(console, arguments); }
+
+    /* ===========================================================
+       applyLang(lang) — Logique pure, synchrone, sans animation.
+       Utilisé au chargement initial pour éviter un flash de vide.
+       =========================================================== */
+    function applyLang(lang) {
+      if (!CONFIG.i18n[lang]) {
+        devError('[i18n] Langue non supportée :', lang);
+        return;
+      }
+
+      currentLang = lang;
+      document.documentElement.setAttribute('lang', lang);
+
+      var strings = CONFIG.i18n[lang];
+
+      // Mettre à jour tous les éléments data-i18n (contenu texte)
+      document.querySelectorAll('[data-i18n]').forEach(function (el) {
+        var key = el.getAttribute('data-i18n');
+        if (Object.prototype.hasOwnProperty.call(strings, key)) {
+          el.textContent = strings[key];
+        } else {
+          devWarn('[i18n] Clé manquante :', key, 'pour la langue :', lang);
+        }
+      });
+
+      // Mettre à jour les aria-label traduits (data-i18n-aria)
+      document.querySelectorAll('[data-i18n-aria]').forEach(function (el) {
+        var key = el.getAttribute('data-i18n-aria');
+        if (Object.prototype.hasOwnProperty.call(strings, key)) {
+          el.setAttribute('aria-label', strings[key]);
+        }
+      });
+
+      // Copyright dynamique avec l'année courante
+      var yearEl = document.getElementById('footer-year');
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+      // Mettre à jour le bouton toggle
+      var toggleBtn = document.getElementById('lang-toggle');
+      if (toggleBtn) {
+        toggleBtn.textContent = strings.langToggleText;
+        toggleBtn.setAttribute('aria-label', strings.langToggleLabel);
+      }
+    }
+
+    /* ===========================================================
+       setLang(lang) — Switch utilisateur avec crossfade animé.
+       =========================================================== */
+    function setLang(lang) {
+      if (!CONFIG.i18n[lang]) return; /* applyLang émettra le devError si besoin */
+
+      document.body.classList.add('lang-switching');
+
+      setTimeout(function () {
+        applyLang(lang);
+        document.body.classList.remove('lang-switching');
+      }, 150);
+    }
+
+    /* ===========================================================
+       initLogos — Injecter les logos depuis CONFIG
+       =========================================================== */
+    function initLogos() {
+      var logos = [
+        document.getElementById('site-logo-header'),
+        document.getElementById('site-logo-hero'),
+      ];
+
+      logos.forEach(function (img) {
+        if (!img) return;
+        img.src = CONFIG.station.logoUrl;
+        img.addEventListener('error', function () {
+          this.style.display = 'none';
+          devError('[logo] Échec du chargement :', this.src);
+        });
+      });
+    }
+
+    /* ===========================================================
+       initFrequencyBadges — Badges FM depuis CONFIG
+       =========================================================== */
+    function initFrequencyBadges() {
+      var container = document.getElementById('hero-frequencies');
+      if (!container) return;
+
+      CONFIG.station.frequencies.forEach(function (freq) {
+        var badge = document.createElement('span');
+        badge.className = 'frequency-badge';
+        badge.textContent = freq + ' FM';
+        container.appendChild(badge);
+      });
+    }
+
+    /* ===========================================================
+       initLinks — Tous les liens depuis CONFIG (source unique)
+       =========================================================== */
+    function initLinks() {
+      // Listen CTA
+      var listenBtn = document.getElementById('listen-btn');
+      if (listenBtn) listenBtn.href = CONFIG.station.appUrl;
+
+      // Store badges
+      var appStoreBtn = document.getElementById('appstore-btn');
+      if (appStoreBtn) appStoreBtn.href = CONFIG.links.appStore;
+
+      var playStoreBtn = document.getElementById('playstore-btn');
+      if (playStoreBtn) playStoreBtn.href = CONFIG.links.playStore;
+
+      // Contact links
+      var waCard = document.getElementById('contact-whatsapp');
+      if (waCard) waCard.href = CONFIG.contact.whatsapp;
+
+      var waValue = document.getElementById('contact-whatsapp-value');
+      if (waValue) waValue.textContent = CONFIG.contact.whatsappDisplay;
+
+      var fbCard = document.getElementById('contact-facebook');
+      if (fbCard) fbCard.href = CONFIG.contact.facebook;
+
+      var fbValue = document.getElementById('contact-facebook-value');
+      if (fbValue) fbValue.textContent = CONFIG.contact.facebookDisplay;
+
+      var emailCard = document.getElementById('contact-email');
+      if (emailCard) emailCard.href = 'mailto:' + CONFIG.contact.email;
+
+      var emailValue = document.getElementById('contact-email-value');
+      if (emailValue) emailValue.textContent = CONFIG.contact.email;
+
+      var addressValue = document.getElementById('contact-address-value');
+      if (addressValue) addressValue.textContent = CONFIG.contact.address;
+
+      // Footer legal links
+      var privacyLink = document.getElementById('footer-privacy-link');
+      if (privacyLink) privacyLink.href = CONFIG.links.privacy;
+
+      var termsLink = document.getElementById('footer-terms-link');
+      if (termsLink) termsLink.href = CONFIG.links.terms;
+    }
+
+    /* ===========================================================
+       Gestionnaire d'événements
+       =========================================================== */
+    var langToggleBtn = document.getElementById('lang-toggle');
+    if (langToggleBtn) {
+      langToggleBtn.addEventListener('click', function () {
+        setLang(currentLang === 'fr' ? 'en' : 'fr');
+      });
+    }
+
+    /* ===========================================================
+       Bootstrap — initialisation synchrone au chargement
+       =========================================================== */
+    initLogos();
+    initFrequencyBadges();
+    initLinks();
+    applyLang('fr');
+  </script>
+
+</body>
+</html>
