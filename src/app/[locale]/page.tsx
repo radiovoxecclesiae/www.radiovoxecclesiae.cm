@@ -146,6 +146,7 @@ export default async function HomePage({ params }: PageProps) {
         {/* ===== SECTION 3 — Listen ===== */}
         <section id="listen" className="snap-section" aria-labelledby="listen-title">
           <div className="container text-center">
+            <div className="listen__live-row">
             <div className="live-badge reveal">
               <span className="live-dot" aria-hidden="true" />
               LIVE
@@ -156,6 +157,7 @@ export default async function HomePage({ params }: PageProps) {
               <div className="eq-bar" />
               <div className="eq-bar" />
               <div className="eq-bar" />
+            </div>
             </div>
             <h2 id="listen-title" className="section__title reveal reveal-delay-1">{dict.listenTitle}</h2>
             <p className="section__desc reveal reveal-delay-2">{dict.listenDescription}</p>
