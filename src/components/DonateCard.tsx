@@ -33,7 +33,7 @@ export default function DonateCard({
   const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText(`+${number.replace(/\s+/g, '')}`);
-      trackEvent({ name: 'donate_number_copy', provider: variant });
+      trackEvent({ name: 'donation_intent', payment_method: variant, source_screen: 'support' });
       setCopied(true);
       setToastVisible(true);
       setTimeout(() => {

@@ -291,16 +291,26 @@ buffer_duration_ms : millisecondes entre le clic Play et le début du son
 
 ---
 
-### Événements Navigation (tous les sites)
+### Événements Navigation
+
+L'objectif est de traquer la navigation sur tous les supports, mais l'event utilisé diffère selon le type d'application :
+
+| Support | Event | Pourquoi |
+|---------|-------|----------|
+| **Corporate** (`www.`) | `page_view` — **natif GA4, automatique** | Site Next.js SSG multi-pages : chaque navigation déclenche un rechargement de page que GTM détecte automatiquement. Aucun code custom nécessaire. |
+| **App radio** (`app.`) | `nav_screen_view` — **custom** | SPA (Single Page App) Expo : les changements d'onglet ne rechargent pas la page, GA4 ne les détecte pas tout seul. L'event custom est nécessaire. |
+| **Android** | `screen_view` — **natif Firebase Analytics** | Firebase détecte automatiquement les changements d'Activity/Fragment. |
+
+#### `nav_screen_view` (app radio web + Android uniquement)
 
 | Événement | Quand | Paramètres |
 |-----------|-------|------------|
-| `nav_screen_view` | Changement de page / d'onglet | `screen_name`, `previous_screen`, `platform` |
+| `nav_screen_view` | Changement d'onglet dans l'app | `screen_name`, `previous_screen`, `platform` |
 
 ```
 screen_name      : "home" | "programme" | "prayers" | "station" | "support"
 previous_screen  : écran précédent (pour analyser les parcours)
-platform         : "web_corporate" | "web_app" | "android"
+platform         : "web_app" | "android"
 ```
 
 ---
