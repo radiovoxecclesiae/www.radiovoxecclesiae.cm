@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { locales, dictionaries, station } from '@/config';
 import type { Locale } from '@/config';
 import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 import DonateCard from '@/components/DonateCard';
 
 interface PageProps {
@@ -109,17 +110,14 @@ export default async function SupportPage({ params }: PageProps) {
         </div>
       </main>
 
-      <footer className="legal-footer">
-        <div className="container footer__inner">
-          <p className="footer__copyright">
-            © {new Date().getFullYear()} {dict.footerCopyrightPrefix}
-          </p>
-          <nav className="footer__links" aria-label={dict.legalNavLabel}>
-            <a href={`/${locale}/privacy`} className="footer__link">{dict.footerPrivacy}</a>
-            <a href={`/${locale}/terms`} className="footer__link">{dict.footerTerms}</a>
-          </nav>
-        </div>
-      </footer>
+      <Footer
+        locale={locale}
+        copyright={dict.footerCopyrightPrefix}
+        privacyLabel={dict.footerPrivacy}
+        termsLabel={dict.footerTerms}
+        legalNavLabel={dict.legalNavLabel}
+        variant="legal"
+      />
     </div>
   );
 }

@@ -3,8 +3,7 @@
 import { useEffect, useState } from 'react';
 import { links } from '@/config';
 import { trackEvent } from '@/lib/analytics';
-
-type Device = 'ios' | 'android' | 'other';
+import { type Device, detectDevice } from '@/lib/device';
 
 interface StoreBadgesProps {
   downloadOnLabel: string;
@@ -13,13 +12,6 @@ interface StoreBadgesProps {
   downloadPlayStoreLabel: string;
 }
 
-function detectDevice(): Device {
-  if (typeof navigator === 'undefined') return 'other';
-  const ua = navigator.userAgent || '';
-  if (/iPad|iPhone|iPod/.test(ua) && !('MSStream' in window)) return 'ios';
-  if (/android/i.test(ua)) return 'android';
-  return 'other';
-}
 
 export default function StoreBadges({
   downloadOnLabel,

@@ -31,15 +31,18 @@ export default function DonateCard({
   const [toastVisible, setToastVisible] = useState(false);
 
   const handleCopy = async () => {
-    const text = `+${number.replace(/\s+/g, '')}`;
-    await navigator.clipboard.writeText(text);
-    trackEvent({ name: 'donate_number_copy', provider: variant });
-    setCopied(true);
-    setToastVisible(true);
-    setTimeout(() => {
-      setCopied(false);
-      setToastVisible(false);
-    }, 2500);
+    try {
+      await navigator.clipboard.writeText(`+${number.replace(/\s+/g, '')}`);
+      trackEvent({ name: 'donate_number_copy', provider: variant });
+      setCopied(true);
+      setToastVisible(true);
+      setTimeout(() => {
+        setCopied(false);
+        setToastVisible(false);
+      }, 2500);
+    } catch {
+      // Clipboard API indisponible (permissions refusées, contexte non sécurisé)
+    }
   };
 
   return (

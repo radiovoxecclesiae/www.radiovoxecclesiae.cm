@@ -2,9 +2,11 @@
 
 import Script from 'next/script';
 
-const GA_ID = 'G-36ZKFTPT5Q';
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 
 export default function GoogleAnalytics() {
+  if (!GA_ID) return null;
+
   return (
     <>
       {/* Consent Mode v2 — denied by default, updated by ConsentBanner on accept */}

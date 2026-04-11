@@ -1,9 +1,24 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import { Noto_Serif, DM_Sans } from 'next/font/google';
 import { locales, dictionaries, station } from '@/config';
 import type { Locale } from '@/config';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
 import ConsentBanner from '@/components/ConsentBanner';
+
+const notoSerif = Noto_Serif({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  display: 'swap',
+  variable: '--font-heading',
+});
+
+const dmSans = DM_Sans({
+  subsets: ['latin'],
+  weight: ['400', '500'],
+  display: 'swap',
+  variable: '--font-body',
+});
 
 interface LocaleLayoutProps {
   children: React.ReactNode;
@@ -51,16 +66,10 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
   const dict = dictionaries[locale as Locale];
 
   return (
-    <html lang={locale} className="h-full">
+    <html lang={locale} className={`h-full ${notoSerif.variable} ${dmSans.variable}`}>
       <head>
         <meta name="theme-color" content="#011449" />
         <link rel="manifest" href="/site.webmanifest" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&family=DM+Sans:wght@400;500&display=swap"
-        />
         <link rel="alternate" hrefLang="fr" href={`${station.canonicalUrl}/fr`} />
         <link rel="alternate" hrefLang="en" href={`${station.canonicalUrl}/en`} />
         <link rel="alternate" hrefLang="x-default" href={`${station.canonicalUrl}/fr`} />

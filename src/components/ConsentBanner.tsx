@@ -44,7 +44,7 @@ export default function ConsentBanner({
   if (!visible) return null;
 
   return (
-    <div className="consent-overlay" role="dialog" aria-modal="true" aria-label={message}>
+    <div className="consent-overlay" role="dialog" aria-modal="true" aria-labelledby="consent-title" aria-describedby="consent-desc">
       <div className="consent-modal">
         <div className="consent-modal__icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
@@ -52,7 +52,8 @@ export default function ConsentBanner({
           </svg>
         </div>
 
-        <p className="consent-modal__message">
+        <p id="consent-title" className="sr-only">Cookies</p>
+        <p id="consent-desc" className="consent-modal__message">
           {message}{' '}
           <a href={privacyHref} className="consent-modal__link">
             {privacyLink}

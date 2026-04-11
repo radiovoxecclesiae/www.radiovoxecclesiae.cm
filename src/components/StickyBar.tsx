@@ -3,24 +3,16 @@
 import { useEffect, useState } from 'react';
 import { links } from '@/config';
 import { trackEvent } from '@/lib/analytics';
-
-type Device = 'ios' | 'android' | 'other';
+import { type Device, detectDevice } from '@/lib/device';
 
 interface StickyBarProps {
   locale: string;
   supportCta: string;
   downloadCta: string;
+  ariaLabel: string;
 }
 
-function detectDevice(): Device {
-  if (typeof navigator === 'undefined') return 'other';
-  const ua = navigator.userAgent || '';
-  if (/iPad|iPhone|iPod/.test(ua) && !('MSStream' in window)) return 'ios';
-  if (/android/i.test(ua)) return 'android';
-  return 'other';
-}
-
-export default function StickyBar({ locale, supportCta, downloadCta }: StickyBarProps) {
+export default function StickyBar({ locale, supportCta, downloadCta, ariaLabel }: StickyBarProps) {
   const [device, setDevice] = useState<Device>('other');
 
   useEffect(() => {
@@ -36,7 +28,7 @@ export default function StickyBar({ locale, supportCta, downloadCta }: StickyBar
   const downloadRel = device !== 'other' ? 'noopener noreferrer' : undefined;
 
   return (
-    <div id="sticky-bar" role="complementary" aria-label="Actions rapides">
+    <div id="sticky-bar" role="complementary" aria-label={ariaLabel}>
       {/* Bouton Nous soutenir */}
       <a
         href={`/${locale}/support`}

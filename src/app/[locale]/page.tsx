@@ -56,8 +56,6 @@ export default async function HomePage({ params }: PageProps) {
   }
 
   const dict = dictionaries[locale as Locale];
-  const year = new Date().getFullYear();
-
   const jsonLd = buildJsonLd(locale as Locale);
 
   return (
@@ -206,24 +204,20 @@ export default async function HomePage({ params }: PageProps) {
 
       </main>
 
-      {/* Footer */}
-      <footer id="site-footer">
-        <div className="container footer__inner">
-          <p className="footer__copyright">
-            © {year} {dict.footerCopyrightPrefix}
-          </p>
-          <nav className="footer__links" aria-label="Liens légaux">
-            <a href={`/${locale}/privacy`} className="footer__link">{dict.footerPrivacy}</a>
-            <a href={`/${locale}/terms`} className="footer__link">{dict.footerTerms}</a>
-          </nav>
-        </div>
-      </footer>
+      <Footer
+        locale={locale}
+        copyright={dict.footerCopyrightPrefix}
+        privacyLabel={dict.footerPrivacy}
+        termsLabel={dict.footerTerms}
+        legalNavLabel={dict.legalNavLabel}
+      />
 
       {/* Sticky bar — mobile */}
       <StickyBar
         locale={locale}
         supportCta={dict.supportCta}
         downloadCta={dict.downloadCta}
+        ariaLabel={dict.stickyBarAriaLabel}
       />
     </>
   );

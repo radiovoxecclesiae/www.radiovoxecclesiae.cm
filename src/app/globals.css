@@ -15,8 +15,7 @@
   --text-muted: rgba(255, 255, 255, 0.65);
   --brand-secondary-glow: rgba(253, 198, 86, 0.3);
   --shadow-elevation: rgba(0, 0, 0, 0.4);
-  --font-heading: 'Noto Serif', Georgia, serif;
-  --font-body: 'DM Sans', system-ui, sans-serif;
+  /* --font-heading et --font-body sont injectées par next/font via className sur <html> */
   --space-xs: 0.5rem;
   --space-sm: 1rem;
   --space-md: 1.5rem;

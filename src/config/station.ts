@@ -35,7 +35,7 @@ const station: StationConfig = {
   },
   logoUrl: '/logo.png',
   ogImageUrl: '/og-image.png',
-  canonicalUrl: 'https://radiovoxecclesiae.cm',
+  canonicalUrl: 'https://www.radiovoxecclesiae.cm',
   appUrl: 'https://app.radiovoxecclesiae.cm/',
   frequencies: [
     { value: '97.3',  label: '97.3 FM'  },

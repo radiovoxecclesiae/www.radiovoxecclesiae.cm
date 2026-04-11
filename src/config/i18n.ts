@@ -57,6 +57,7 @@ export interface Dictionary {
 
   /* Sticky bar */
   supportCta: string;
+  stickyBarAriaLabel: string;
 
   /* Footer */
   footerCopyrightPrefix: string;
@@ -181,6 +182,7 @@ const dictionaries: Dictionaries = {
 
     /* Sticky bar */
     supportCta: 'Nous soutenir',
+    stickyBarAriaLabel: 'Actions rapides',
 
     /* Footer */
     footerCopyrightPrefix: 'Radio Vox Ecclesiae. Tous droits réservés.',
@@ -310,6 +312,7 @@ const dictionaries: Dictionaries = {
 
     /* Sticky bar */
     supportCta: 'Support Us',
+    stickyBarAriaLabel: 'Quick actions',
 
     /* Footer */
     footerCopyrightPrefix: 'Radio Vox Ecclesiae. All rights reserved.',
