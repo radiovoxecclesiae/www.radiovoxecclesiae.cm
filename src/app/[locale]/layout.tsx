@@ -54,10 +54,6 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
     <html lang={locale} className="h-full">
       <head>
         <meta name="theme-color" content="#011449" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
-        <link rel="apple-touch-icon" sizes="192x192" href="/icon-192.png" />
-        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="manifest" href="/site.webmanifest" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
