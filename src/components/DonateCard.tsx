@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import { trackEvent } from '@/lib/analytics';
 
 interface DonateCardProps {
   number: string;
@@ -32,6 +33,7 @@ export default function DonateCard({
   const handleCopy = async () => {
     const text = `+${number.replace(/\s+/g, '')}`;
     await navigator.clipboard.writeText(text);
+    trackEvent({ name: 'donate_number_copy', provider: variant });
     setCopied(true);
     setToastVisible(true);
     setTimeout(() => {

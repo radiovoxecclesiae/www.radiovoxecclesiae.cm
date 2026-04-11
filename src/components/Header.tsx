@@ -1,6 +1,9 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
 import type { Locale } from '@/config';
+import { trackEvent } from '@/lib/analytics';
 
 interface HeaderProps {
   locale: Locale;
@@ -47,6 +50,7 @@ export default function Header({ locale, langToggleText, langToggleLabel, statio
             className="lang-toggle-btn"
             aria-label={langToggleLabel}
             hrefLang={otherLocale}
+            onClick={() => trackEvent({ name: 'language_switch', from: locale, to: otherLocale })}
           >
             {langToggleText}
           </Link>

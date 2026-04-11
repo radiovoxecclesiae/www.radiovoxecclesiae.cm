@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { locales, dictionaries, station } from '@/config';
 import type { Locale } from '@/config';
+import GoogleAnalytics from '@/components/GoogleAnalytics';
 
 interface LocaleLayoutProps {
   children: React.ReactNode;
@@ -68,6 +69,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
         <link rel="alternate" hrefLang="x-default" href={`${station.canonicalUrl}/fr`} />
       </head>
       <body>
+        <GoogleAnalytics />
         {children}
       </body>
     </html>
