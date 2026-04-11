@@ -18,6 +18,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!locales.includes(locale as Locale)) return {};
   const dict = dictionaries[locale as Locale];
 
+  const ogImage = `${station.canonicalUrl}${station.ogImageUrl}`;
+
   return {
     title: dict.privacyPageTitle,
     description: dict.privacyPageDescription,
@@ -25,13 +27,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       title: dict.privacyPageTitle,
       description: dict.privacyPageDescription,
       url: `${station.canonicalUrl}/${locale}/privacy`,
+      siteName: station.name,
+      locale: locale === 'fr' ? 'fr_CM' : 'en_US',
       type: 'website',
-      images: [{ url: `${station.canonicalUrl}${station.ogImageUrl}`, width: 1200, height: 630, alt: station.name }],
+      images: [{ url: ogImage, width: 1200, height: 630, alt: station.name }],
     },
     twitter: {
+      card: 'summary_large_image',
       title: dict.privacyPageTitle,
       description: dict.privacyPageDescription,
-      images: [`${station.canonicalUrl}${station.ogImageUrl}`],
+      images: [ogImage],
     },
   };
 }

@@ -22,28 +22,30 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
   if (!locales.includes(locale as Locale)) return {};
-  const dict = dictionaries[locale as Locale];
+
+  const title = locale === 'fr'
+    ? 'Radio Vox Ecclesiae — La voix de l\'Église | 97.3 FM Bafoussam'
+    : 'Radio Vox Ecclesiae — The Voice of the Church | 97.3 FM Bafoussam';
+  const description = station.description[locale as Locale];
+  const ogImage = `${station.canonicalUrl}${station.ogImageUrl}`;
 
   return {
-    title: locale === 'fr'
-      ? 'Radio Vox Ecclesiae — La voix de l\'Église | 97.3 FM Bafoussam'
-      : 'Radio Vox Ecclesiae — The Voice of the Church | 97.3 FM Bafoussam',
-    description: station.description[locale as Locale],
+    title,
+    description,
     openGraph: {
-      title: locale === 'fr'
-        ? 'Radio Vox Ecclesiae — La voix de l\'Église | 97.3 FM Bafoussam'
-        : 'Radio Vox Ecclesiae — The Voice of the Church | 97.3 FM Bafoussam',
-      description: station.description[locale as Locale],
+      title,
+      description,
       url: `${station.canonicalUrl}/${locale}`,
+      siteName: station.name,
+      locale: locale === 'fr' ? 'fr_CM' : 'en_US',
       type: 'website',
-      images: [{ url: `${station.canonicalUrl}${station.ogImageUrl}`, width: 1200, height: 630, alt: station.name }],
+      images: [{ url: ogImage, width: 1200, height: 630, alt: station.name }],
     },
     twitter: {
-      title: locale === 'fr'
-        ? 'Radio Vox Ecclesiae — La voix de l\'Église | 97.3 FM Bafoussam'
-        : 'Radio Vox Ecclesiae — The Voice of the Church | 97.3 FM Bafoussam',
-      description: station.description[locale as Locale],
-      images: [`${station.canonicalUrl}${station.ogImageUrl}`],
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [ogImage],
     },
   };
 }

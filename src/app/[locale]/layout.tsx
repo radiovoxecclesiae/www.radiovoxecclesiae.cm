@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { Noto_Serif, DM_Sans } from 'next/font/google';
-import { locales, dictionaries, station } from '@/config';
+import { locales, dictionaries } from '@/config';
 import type { Locale } from '@/config';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
 import ConsentBanner from '@/components/ConsentBanner';
@@ -34,7 +34,6 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   if (!locales.includes(locale as Locale)) return {};
 
   return {
-    metadataBase: new URL(station.canonicalUrl),
     alternates: {
       canonical: `/${locale}`,
       languages: {
@@ -42,12 +41,6 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
         en: '/en',
       },
     },
-    openGraph: {
-      siteName: station.name,
-      locale: locale === 'fr' ? 'fr_CM' : 'en_US',
-      images: [{ url: `${station.canonicalUrl}${station.ogImageUrl}`, width: 1200, height: 630 }],
-    },
-    twitter: { card: 'summary_large_image' },
     other: {
       'geo.region': 'CM-OU',
       'geo.placename': 'Bafoussam, Cameroun',
@@ -69,9 +62,6 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
       <head>
         <meta name="theme-color" content="#011449" />
         <link rel="manifest" href="/site.webmanifest" />
-        <link rel="alternate" hrefLang="fr" href={`${station.canonicalUrl}/fr`} />
-        <link rel="alternate" hrefLang="en" href={`${station.canonicalUrl}/en`} />
-        <link rel="alternate" hrefLang="x-default" href={`${station.canonicalUrl}/fr`} />
       </head>
       <body>
         <GoogleAnalytics />
