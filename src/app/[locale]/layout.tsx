@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { locales, dictionaries, station } from '@/config';
 import type { Locale } from '@/config';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
+import ConsentBanner from '@/components/ConsentBanner';
 
 interface LocaleLayoutProps {
   children: React.ReactNode;
@@ -71,6 +72,13 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
       <body>
         <GoogleAnalytics />
         {children}
+        <ConsentBanner
+          message={dict.consentMessage}
+          privacyLink={dict.consentPrivacyLink}
+          privacyHref={`/${locale}/privacy`}
+          acceptLabel={dict.consentAccept}
+          declineLabel={dict.consentDecline}
+        />
       </body>
     </html>
   );

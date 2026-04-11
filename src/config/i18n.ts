@@ -116,6 +116,12 @@ export interface Dictionary {
   termsSec5Title: string;
   termsSec5Body: string;
   termsPageDescription: string;
+
+  /* Consent banner */
+  consentMessage: string;
+  consentPrivacyLink: string;
+  consentAccept: string;
+  consentDecline: string;
 }
 
 export type Dictionaries = Record<Locale, Dictionary>;
@@ -243,6 +249,12 @@ const dictionaries: Dictionaries = {
     termsSec4Body:   'Radio Vox Ecclesiae s\'efforce d\'assurer la disponibilité continue de ses services, mais ne saurait être tenue responsable des interruptions de service, des erreurs techniques ou des dommages indirects résultant de l\'utilisation de ses services. Le service est fourni "en l\'état", sans garantie d\'aucune sorte.',
     termsSec5Title:  'Droit applicable et contact',
     termsSec5Body:   'Les présentes conditions sont régies par le droit camerounais. Tout litige sera soumis à la juridiction compétente de Bafoussam, Cameroun. Pour toute question, contactez-nous à :',
+
+    /* Consent banner */
+    consentMessage:     'Ce site utilise des cookies analytiques pour mesurer l\'audience et améliorer votre expérience.',
+    consentPrivacyLink: 'Politique de confidentialité',
+    consentAccept:      'Accepter',
+    consentDecline:     'Refuser',
   },
 
   en: {
@@ -367,6 +379,12 @@ const dictionaries: Dictionaries = {
     termsSec4Body:   'Radio Vox Ecclesiae strives to ensure the continuous availability of its services, but cannot be held liable for service interruptions, technical errors, or indirect damages arising from the use of its services. The service is provided "as is", without warranty of any kind.',
     termsSec5Title:  'Governing Law and Contact',
     termsSec5Body:   'These terms are governed by Cameroonian law. Any dispute shall be submitted to the competent jurisdiction of Bafoussam, Cameroon. For any questions, contact us at:',
+
+    /* Consent banner */
+    consentMessage:     'This site uses analytics cookies to measure audience and improve your experience.',
+    consentPrivacyLink: 'Privacy Policy',
+    consentAccept:      'Accept',
+    consentDecline:     'Decline',
   },
 };
 

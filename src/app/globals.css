@@ -1254,6 +1254,72 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 }
 
 /* =========================================================
+   Consent Banner
+   ========================================================= */
+.consent-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 400;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.5rem;
+  padding: 1rem 1.25rem;
+  background: rgba(1, 20, 73, 0.96);
+  border-top: 1px solid rgba(253, 198, 86, 0.2);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.consent-banner__message {
+  flex: 1;
+  min-width: 200px;
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.consent-banner__link {
+  color: var(--brand-accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  white-space: nowrap;
+}
+
+.consent-banner__actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.consent-banner__btn {
+  padding: 0.45rem 1rem;
+  border-radius: var(--radius-full);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: opacity 200ms ease;
+}
+
+.consent-banner__btn:hover { opacity: 0.85; }
+
+.consent-banner__btn--accept {
+  background: var(--brand-accent);
+  color: var(--brand-primary);
+  border-color: var(--brand-accent);
+}
+
+.consent-banner__btn--decline {
+  background: transparent;
+  color: rgba(255, 255, 255, 0.6);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* =========================================================
    Accessibilité — prefers-reduced-motion
    ========================================================= */
 @media (prefers-reduced-motion: reduce) {
