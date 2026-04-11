@@ -51,8 +51,8 @@ const station: StationConfig = {
     address: 'Bafoussam II, Cameroun',
   },
   payment: {
-    mtn:    { number: '237653171211', display: '+237 6 53 17 12 11' },
-    orange: { number: '237690060301', display: '+237 6 90 06 03 01' },
+    mtn:    { number: '237653171211', display: '6 53 17 12 11' },
+    orange: { number: '237690060301', display: '6 90 06 03 01' },
   },
 };
 

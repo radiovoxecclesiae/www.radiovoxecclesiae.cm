@@ -68,20 +68,26 @@ export interface Dictionary {
   supportPageDescription: string;
   supportTitle: string;
   supportSubtitle: string;
-  supportHowTitle: string;
-  supportHowBody: string;
-  supportPaymentTitle: string;
-  supportPaymentSubtitle: string;
+  supportInstruction: string;
+  supportMtnName: string;
   supportMtnCta: string;
   supportMtnAriaLabel: string;
+  supportOrangeName: string;
   supportOrangeCta: string;
   supportOrangeAriaLabel: string;
-  supportReceiptLabel: string;
-  supportSecurityNote: string;
+  supportTrustTitle: string;
+  supportTrustNote: string;
   toastCopied: string;
+
+  /* Shared legal UI labels */
+  legalNavLabel: string;
+  tocAriaLabel: string;
+  tocHeading: string;
+  emailAriaLabel: string;
 
   /* Privacy page */
   privacyPageTitle: string;
+  privacyPageDescription: string;
   privacyTitle: string;
   privacyDate: string;
   privacySec1Title: string;
@@ -109,6 +115,7 @@ export interface Dictionary {
   termsSec4Body: string;
   termsSec5Title: string;
   termsSec5Body: string;
+  termsPageDescription: string;
 }
 
 export type Dictionaries = Record<Locale, Dictionary>;
@@ -178,24 +185,30 @@ const dictionaries: Dictionaries = {
     /* Support page */
     supportPageTitle:       'Nous soutenir — Radio Vox Ecclesiae',
     supportPageDescription: 'Soutenez Radio Vox Ecclesiae — la radio catholique du Diocèse de Bafoussam. Vos dons nous permettent de continuer à diffuser la Parole de Dieu.',
-    supportTitle:           'Soutenez Radio Vox Ecclesiae',
-    supportSubtitle:        'Votre générosité nous permet de continuer à diffuser la Parole de Dieu sur les ondes du Diocèse de Bafoussam et au-delà.',
-    supportHowTitle:        'Comment faire un don ?',
-    supportHowBody:         'Appuyez sur le bouton de votre opérateur pour copier le numéro, puis effectuez le transfert depuis votre application Mobile Money.',
-    supportPaymentTitle:    'Moyens de paiement',
-    supportPaymentSubtitle: 'Choisissez votre opérateur mobile pour effectuer votre don.',
-    supportMtnCta:          'Payer avec MTN',
-    supportMtnAriaLabel:    'Copier le numéro MTN Mobile Money : +237 6 53 17 12 11',
-    supportOrangeCta:       'Payer avec Orange',
-    supportOrangeAriaLabel: 'Copier le numéro Orange Money : +237 6 90 06 03 01',
-    supportReceiptLabel:    'Numéro de réception',
-    supportSecurityNote:    'Appuyez pour copier le numéro',
+    supportTitle:           'Aidez-nous à continuer',
+    supportSubtitle:        'Chaque don, petit ou grand, permet à Radio Vox Ecclesiae de rester sur les ondes et de porter la Parole de Dieu dans chaque foyer du Diocèse de Bafoussam.',
+    supportInstruction:     'Appuyez sur un bouton pour copier le numéro, puis effectuez le transfert depuis votre application Mobile Money.',
+    supportMtnName:         'MTN Mobile Money',
+    supportMtnCta:          'Appuyer pour copier',
+    supportMtnAriaLabel:    'Copier le numéro MTN Mobile Money : 6 53 17 12 11',
+    supportOrangeName:      'Orange Money',
+    supportOrangeCta:       'Appuyer pour copier',
+    supportOrangeAriaLabel: 'Copier le numéro Orange Money : 6 90 06 03 01',
+    supportTrustTitle:      'Paiement direct & sécurisé',
+    supportTrustNote:       'Vos dons vont directement au financement de la radio, sans intermédiaire.',
     toastCopied:            'Numéro copié !',
 
+    /* Shared legal UI labels */
+    legalNavLabel: 'Liens légaux',
+    tocAriaLabel:  'Table des matières',
+    tocHeading:    'Sommaire',
+    emailAriaLabel: 'Envoyer un e-mail à',
+
     /* Privacy page */
-    privacyPageTitle:  'Politique de confidentialité — Radio Vox Ecclesiae',
+    privacyPageTitle:       'Politique de confidentialité — Radio Vox Ecclesiae',
+    privacyPageDescription: 'Consultez la politique de confidentialité de Radio Vox Ecclesiae : données collectées, utilisation, services tiers et vos droits. Radio catholique du Diocèse de Bafoussam.',
     privacyTitle:      'Politique de confidentialité',
-    privacyDate:       'Dernière mise à jour : janvier 2024',
+    privacyDate:       'Dernière mise à jour : Avril 2026',
     privacySec1Title:  'Données collectées',
     privacySec1Body:   "Lors de votre utilisation de notre application mobile et de notre site web, nous pouvons collecter les données suivantes :",
     privacySec1Items:  [
@@ -216,9 +229,10 @@ const dictionaries: Dictionaries = {
     privacySec4Body:   "Pour toute question relative à vos données personnelles, pour exercer votre droit d'accès, de rectification ou de suppression, contactez-nous à :",
 
     /* Terms page */
-    termsPageTitle:  "Conditions d'utilisation — Radio Vox Ecclesiae",
+    termsPageTitle:       "Conditions d'utilisation — Radio Vox Ecclesiae",
+    termsPageDescription: "Lisez les conditions d'utilisation de Radio Vox Ecclesiae : accès au service, propriété intellectuelle, responsabilité et droit applicable. Radio catholique du Diocèse de Bafoussam.",
     termsTitle:      "Conditions d'utilisation",
-    termsDate:       'Dernière mise à jour : janvier 2024',
+    termsDate:       'Dernière mise à jour : Avril 2026',
     termsSec1Title:  'Acceptation des conditions',
     termsSec1Body:   "En accédant à notre site web ou en utilisant notre application mobile, vous acceptez d'être lié par les présentes conditions d'utilisation. Si vous n'acceptez pas ces conditions, veuillez ne pas utiliser nos services.",
     termsSec2Title:  'Description du service',
@@ -295,24 +309,30 @@ const dictionaries: Dictionaries = {
     /* Support page */
     supportPageTitle:       'Support Us — Radio Vox Ecclesiae',
     supportPageDescription: 'Support Radio Vox Ecclesiae — the Catholic radio of the Diocese of Bafoussam. Your donations allow us to continue broadcasting the Word of God.',
-    supportTitle:           'Support Radio Vox Ecclesiae',
-    supportSubtitle:        'Your generosity allows us to continue broadcasting the Word of God across the Diocese of Bafoussam and beyond.',
-    supportHowTitle:        'How to donate?',
-    supportHowBody:         "Tap your operator's button to copy the number, then complete the transfer from your Mobile Money app.",
-    supportPaymentTitle:    'Payment methods',
-    supportPaymentSubtitle: 'Choose your mobile operator to make your donation.',
-    supportMtnCta:          'Pay with MTN',
-    supportMtnAriaLabel:    'Copy MTN Mobile Money number: +237 6 53 17 12 11',
-    supportOrangeCta:       'Pay with Orange',
-    supportOrangeAriaLabel: 'Copy Orange Money number: +237 6 90 06 03 01',
-    supportReceiptLabel:    'Receiving number',
-    supportSecurityNote:    'Tap to copy the number',
+    supportTitle:           'Help us keep broadcasting',
+    supportSubtitle:        'Every donation, large or small, keeps Radio Vox Ecclesiae on air and brings the Word of God into every home across the Diocese of Bafoussam.',
+    supportInstruction:     'Tap a button to copy the number, then complete the transfer in your Mobile Money app.',
+    supportMtnName:         'MTN Mobile Money',
+    supportMtnCta:          'Tap to copy',
+    supportMtnAriaLabel:    'Copy MTN Mobile Money number: 6 53 17 12 11',
+    supportOrangeName:      'Orange Money',
+    supportOrangeCta:       'Tap to copy',
+    supportOrangeAriaLabel: 'Copy Orange Money number: 6 90 06 03 01',
+    supportTrustTitle:      'Direct & secure payment',
+    supportTrustNote:       'Your donation goes directly to the radio, with no intermediary.',
     toastCopied:            'Number copied!',
 
+    /* Shared legal UI labels */
+    legalNavLabel: 'Legal links',
+    tocAriaLabel:  'Table of contents',
+    tocHeading:    'Contents',
+    emailAriaLabel: 'Send an email to',
+
     /* Privacy page */
-    privacyPageTitle:  'Privacy Policy — Radio Vox Ecclesiae',
+    privacyPageTitle:       'Privacy Policy — Radio Vox Ecclesiae',
+    privacyPageDescription: 'Read the privacy policy of Radio Vox Ecclesiae: data collected, usage, third-party services and your rights. Catholic radio of the Diocese of Bafoussam.',
     privacyTitle:      'Privacy Policy',
-    privacyDate:       'Last updated: January 2024',
+    privacyDate:       'Last updated: April 2026',
     privacySec1Title:  'Data Collected',
     privacySec1Body:   'When you use our mobile application and website, we may collect the following data:',
     privacySec1Items:  [
@@ -333,9 +353,10 @@ const dictionaries: Dictionaries = {
     privacySec4Body:   'For any questions regarding your personal data, or to exercise your rights of access, rectification or deletion, contact us at:',
 
     /* Terms page */
-    termsPageTitle:  'Terms of Service — Radio Vox Ecclesiae',
+    termsPageTitle:       'Terms of Service — Radio Vox Ecclesiae',
+    termsPageDescription: 'Read the Terms of Service of Radio Vox Ecclesiae: service access, intellectual property, liability and governing law. Catholic radio of the Diocese of Bafoussam.',
     termsTitle:      'Terms of Service',
-    termsDate:       'Last updated: January 2024',
+    termsDate:       'Last updated: April 2026',
     termsSec1Title:  'Acceptance of Terms',
     termsSec1Body:   'By accessing our website or using our mobile application, you agree to be bound by these Terms of Service. If you do not accept these terms, please do not use our services.',
     termsSec2Title:  'Service Description',

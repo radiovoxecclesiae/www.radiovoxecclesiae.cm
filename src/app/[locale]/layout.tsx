@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     openGraph: {
       siteName: station.name,
       locale: locale === 'fr' ? 'fr_CM' : 'en_US',
-      images: [{ url: station.ogImageUrl, width: 1200, height: 630 }],
+      images: [{ url: `${station.canonicalUrl}${station.ogImageUrl}`, width: 1200, height: 630 }],
     },
     twitter: { card: 'summary_large_image' },
     other: {

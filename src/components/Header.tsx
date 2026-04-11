@@ -7,10 +7,15 @@ interface HeaderProps {
   langToggleText: string;
   langToggleLabel: string;
   stationName: string;
+  /** Full href for the lang toggle — defaults to /{otherLocale} if omitted */
+  langToggleHref?: string;
+  /** Label for the support CTA button — hidden on mobile */
+  supportCtaLabel?: string;
 }
 
-export default function Header({ locale, langToggleText, langToggleLabel, stationName }: HeaderProps) {
+export default function Header({ locale, langToggleText, langToggleLabel, stationName, langToggleHref, supportCtaLabel }: HeaderProps) {
   const otherLocale: Locale = locale === 'fr' ? 'en' : 'fr';
+  const toggleHref = langToggleHref ?? `/${otherLocale}`;
 
   return (
     <header id="site-header">
@@ -27,14 +32,25 @@ export default function Header({ locale, langToggleText, langToggleLabel, statio
           <span className="header__station-name">{stationName}</span>
         </Link>
 
-        <Link
-          href={`/${otherLocale}`}
-          className="lang-toggle-btn"
-          aria-label={langToggleLabel}
-          hrefLang={otherLocale}
-        >
-          {langToggleText}
-        </Link>
+        {/* header__actions — future nav links go here too */}
+        <div className="header__actions">
+          {supportCtaLabel && (
+            <Link
+              href={`/${locale}/support`}
+              className="header__support-btn"
+            >
+              {supportCtaLabel}
+            </Link>
+          )}
+          <Link
+            href={toggleHref}
+            className="lang-toggle-btn"
+            aria-label={langToggleLabel}
+            hrefLang={otherLocale}
+          >
+            {langToggleText}
+          </Link>
+        </div>
       </div>
     </header>
   );

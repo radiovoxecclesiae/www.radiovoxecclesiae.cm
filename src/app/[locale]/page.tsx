@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { locales, dictionaries, station } from '@/config';
+import { buildJsonLd } from '@/lib/jsonld';
 import type { Locale } from '@/config';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -33,14 +34,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description: station.description[locale as Locale],
       url: `${station.canonicalUrl}/${locale}`,
       type: 'website',
-      images: [{ url: station.ogImageUrl, width: 1200, height: 630, alt: station.name }],
+      images: [{ url: `${station.canonicalUrl}${station.ogImageUrl}`, width: 1200, height: 630, alt: station.name }],
     },
     twitter: {
       title: locale === 'fr'
         ? 'Radio Vox Ecclesiae — La voix de l\'Église | 97.3 FM Bafoussam'
         : 'Radio Vox Ecclesiae — The Voice of the Church | 97.3 FM Bafoussam',
       description: station.description[locale as Locale],
-      images: [station.ogImageUrl],
+      images: [`${station.canonicalUrl}${station.ogImageUrl}`],
     },
   };
 }
@@ -55,31 +56,7 @@ export default async function HomePage({ params }: PageProps) {
   const dict = dictionaries[locale as Locale];
   const year = new Date().getFullYear();
 
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'RadioStation',
-    name: station.name,
-    url: station.canonicalUrl,
-    logo: `${station.canonicalUrl}${station.logoUrl}`,
-    image: `${station.canonicalUrl}${station.ogImageUrl}`,
-    description: station.description.fr,
-    broadcastFrequency: station.frequencies.map((f) => ({
-      '@type': 'BroadcastFrequencySpecification',
-      broadcastFrequencyValue: f.value,
-      broadcastSignalModulation: 'FM',
-    })),
-    areaServed: {
-      '@type': 'AdministrativeArea',
-      name: 'Diocèse de Bafoussam',
-      containedInPlace: { '@type': 'Country', name: 'Cameroun' },
-    },
-    contactPoint: {
-      '@type': 'ContactPoint',
-      email: station.contact.email,
-      contactType: 'customer service',
-    },
-    sameAs: [station.contact.facebook],
-  };
+  const jsonLd = buildJsonLd(locale as Locale);
 
   return (
     <>
@@ -97,6 +74,7 @@ export default async function HomePage({ params }: PageProps) {
         langToggleText={dict.langToggleText}
         langToggleLabel={dict.langToggleLabel}
         stationName={station.name}
+        supportCtaLabel={dict.supportCta}
       />
 
       {/* Scroll dots */}
