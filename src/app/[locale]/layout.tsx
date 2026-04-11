@@ -32,7 +32,6 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   if (!locales.includes(locale as Locale)) return {};
-  const dict = dictionaries[locale as Locale];
 
   return {
     metadataBase: new URL(station.canonicalUrl),
@@ -42,14 +41,6 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
         fr: '/fr',
         en: '/en',
       },
-    },
-    icons: {
-      icon: [
-        { url: '/favicon.svg', type: 'image/svg+xml' },
-        { url: '/favicon-96x96.png', type: 'image/png', sizes: '96x96' },
-        { url: '/favicon.ico', type: 'image/x-icon' },
-      ],
-      apple: { url: '/icon-192.png', sizes: '192x192' },
     },
     openGraph: {
       siteName: station.name,
