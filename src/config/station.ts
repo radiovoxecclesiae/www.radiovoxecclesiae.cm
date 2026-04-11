@@ -34,7 +34,7 @@ const station: StationConfig = {
     en: "Catholic radio of the Diocese of Bafoussam. Evangelization, education and culture. 97.3 / 103.7 / 105.8 FM.",
   },
   logoUrl: '/logo.png',
-  ogImageUrl: '/og-image.png',
+  ogImageUrl: '/og-image.jpeg',
   canonicalUrl: 'https://www.radiovoxecclesiae.cm',
   appUrl: 'https://app.radiovoxecclesiae.cm/',
   frequencies: [
