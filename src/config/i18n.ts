@@ -43,6 +43,7 @@ export interface Dictionary {
 
   /* Section Contact */
   contactTitle: string;
+  contactDescription: string;
   contactWhatsapp: string;
   contactFacebook: string;
   contactEmail: string;
@@ -168,6 +169,7 @@ const dictionaries: Dictionaries = {
 
     /* Contact */
     contactTitle:    'Nous contacter',
+    contactDescription: 'Rejoignez-nous sur nos réseaux ou écrivez-nous directement.',
     contactWhatsapp: 'WhatsApp',
     contactFacebook: 'Facebook',
     contactEmail:    'Email',
@@ -298,6 +300,7 @@ const dictionaries: Dictionaries = {
 
     /* Contact */
     contactTitle:    'Contact Us',
+    contactDescription: 'Find us on our channels or write to us directly.',
     contactWhatsapp: 'WhatsApp',
     contactFacebook: 'Facebook',
     contactEmail:    'Email',

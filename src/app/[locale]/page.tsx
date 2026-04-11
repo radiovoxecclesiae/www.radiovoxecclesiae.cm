@@ -187,6 +187,7 @@ export default async function HomePage({ params }: PageProps) {
         <section id="contact" className="snap-section" aria-labelledby="contact-title">
           <div className="container">
             <h2 id="contact-title" className="section__title reveal">{dict.contactTitle}</h2>
+            <p className="section__desc reveal reveal-delay-1">{dict.contactDescription}</p>
             <ContactGrid
               whatsappHref={station.contact.whatsapp}
               whatsappDisplay={station.contact.whatsappDisplay}
