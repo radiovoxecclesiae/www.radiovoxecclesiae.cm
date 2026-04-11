@@ -1,6 +1,4 @@
-import { redirect } from 'next/navigation';
-import { defaultLocale } from '@/config';
-
+// Cette page n'est jamais rendue — / est rewrité vers /fr via next.config.ts
 export default function RootPage() {
-  redirect(`/${defaultLocale}`);
+  return null;
 }
