@@ -4,14 +4,6 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: __dirname,
   },
-  async rewrites() {
-    return [
-      {
-        source: '/',
-        destination: '/fr',
-      },
-    ];
-  },
   async headers() {
     return [
       {

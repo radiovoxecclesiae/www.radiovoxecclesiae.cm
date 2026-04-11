@@ -21,9 +21,13 @@ export function proxy(request: NextRequest) {
 
   if (pathnameHasLocale) return NextResponse.next();
 
-  // Redirect / and all other paths to /fr equivalent
+  // Rewrite / to /fr (serve content directly, no redirect — preserves OG scraping)
+  // Redirect all other paths without locale prefix to their /fr equivalent
   const url = request.nextUrl.clone();
   url.pathname = `/${defaultLocale}${pathname}`;
+  if (pathname === '/') {
+    return NextResponse.rewrite(url);
+  }
   return NextResponse.redirect(url);
 }
 
