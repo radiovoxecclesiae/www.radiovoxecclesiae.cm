@@ -4,11 +4,11 @@ import { useEffect, useState } from 'react';
 
 const STORAGE_KEY = 'rve_analytics_consent';
 
-declare function gtag(...args: unknown[]): void;
-
 function grantConsent(): void {
-  if (typeof window === 'undefined' || typeof gtag === 'undefined') return;
-  gtag('consent', 'update', { analytics_storage: 'granted' });
+  if (typeof window === 'undefined') return;
+
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({ event: 'consent_granted' });
 }
 
 interface ConsentBannerProps {

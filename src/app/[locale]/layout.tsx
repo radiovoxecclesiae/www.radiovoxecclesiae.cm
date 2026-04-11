@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import { Noto_Serif, DM_Sans } from 'next/font/google';
 import { locales, dictionaries } from '@/config';
 import type { Locale } from '@/config';
-import GoogleAnalytics from '@/components/GoogleAnalytics';
+import GoogleTagManager, { GoogleTagManagerNoScript } from '@/components/GoogleTagManager';
 import ConsentBanner from '@/components/ConsentBanner';
 
 const notoSerif = Noto_Serif({
@@ -62,9 +62,10 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
       <head>
         <meta name="theme-color" content="#011449" />
         <link rel="manifest" href="/site.webmanifest" />
+        <GoogleTagManager />
       </head>
       <body>
-        <GoogleAnalytics />
+        <GoogleTagManagerNoScript />
         {children}
         <ConsentBanner
           message={dict.consentMessage}

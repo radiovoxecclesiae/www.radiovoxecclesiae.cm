@@ -1,5 +1,3 @@
-declare function gtag(...args: unknown[]): void;
-
 type AppDownloadPlatform = 'ios' | 'android' | 'unknown';
 
 type AnalyticsEvent =
@@ -11,8 +9,19 @@ type AnalyticsEvent =
   | { name: 'language_switch'; from: string; to: string };
 
 export function trackEvent(event: AnalyticsEvent): void {
-  if (typeof window === 'undefined' || typeof gtag === 'undefined') return;
+  if (typeof window === 'undefined') return;
 
   const { name, ...params } = event;
-  gtag('event', name, params);
+
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: name,
+    ...params,
+  });
+}
+
+declare global {
+  interface Window {
+    dataLayer: Array<{ event?: string; [key: string]: unknown }>;
+  }
 }
