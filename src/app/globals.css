@@ -1347,20 +1347,6 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   transform: translateY(-1px);
 }
 
-.consent-modal__decline {
-  background: none;
-  border: none;
-  font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.28);
-  cursor: pointer;
-  text-decoration: underline;
-  text-underline-offset: 2px;
-  padding: 0.25rem;
-  transition: color 200ms ease;
-}
-
-.consent-modal__decline:hover { color: rgba(255, 255, 255, 0.5); }
-
 /* --- Desktop: toast bas-droite --- */
 @media (min-width: 768px) {
   .consent-overlay {

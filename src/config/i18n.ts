@@ -120,8 +120,7 @@ export interface Dictionary {
   /* Consent banner */
   consentMessage: string;
   consentPrivacyLink: string;
-  consentAccept: string;
-  consentDecline: string;
+  consentDismiss: string;
 }
 
 export type Dictionaries = Record<Locale, Dictionary>;
@@ -251,10 +250,9 @@ const dictionaries: Dictionaries = {
     termsSec5Body:   'Les présentes conditions sont régies par le droit camerounais. Tout litige sera soumis à la juridiction compétente de Bafoussam, Cameroun. Pour toute question, contactez-nous à :',
 
     /* Consent banner */
-    consentMessage:     'Ce site utilise des cookies analytiques pour mesurer l\'audience et améliorer votre expérience.',
+    consentMessage:     'Ce site utilise des cookies analytiques pour mesurer son audience.',
     consentPrivacyLink: 'Politique de confidentialité',
-    consentAccept:      'Accepter',
-    consentDecline:     'Refuser',
+    consentDismiss:     'J\'ai compris',
   },
 
   en: {
@@ -381,10 +379,9 @@ const dictionaries: Dictionaries = {
     termsSec5Body:   'These terms are governed by Cameroonian law. Any dispute shall be submitted to the competent jurisdiction of Bafoussam, Cameroon. For any questions, contact us at:',
 
     /* Consent banner */
-    consentMessage:     'This site uses analytics cookies to measure audience and improve your experience.',
+    consentMessage:     'This site uses analytics cookies to measure its audience.',
     consentPrivacyLink: 'Privacy Policy',
-    consentAccept:      'Accept',
-    consentDecline:     'Decline',
+    consentDismiss:     'I understand',
   },
 };
 

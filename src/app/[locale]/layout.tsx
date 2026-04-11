@@ -76,8 +76,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
           message={dict.consentMessage}
           privacyLink={dict.consentPrivacyLink}
           privacyHref={`/${locale}/privacy`}
-          acceptLabel={dict.consentAccept}
-          declineLabel={dict.consentDecline}
+          dismissLabel={dict.consentDismiss}
         />
       </body>
     </html>
