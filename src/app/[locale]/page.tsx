@@ -24,8 +24,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!locales.includes(locale as Locale)) return {};
 
   const title = locale === 'fr'
-    ? 'Radio Vox Ecclesiae — La radio du diocèse de Bafoussam | 97.3 FM'
-    : 'Radio Vox Ecclesiae — The Radio of the Diocese of Bafoussam | 97.3 FM';
+    ? 'Radio Vox Ecclesiae — Diocèse de Bafoussam | 97.3 FM'
+    : 'Radio Vox Ecclesiae — Diocese of Bafoussam | 97.3 FM';
   const description = station.description[locale as Locale];
   const ogImage = `${station.canonicalUrl}${station.ogImageUrl}`;
 
@@ -95,7 +95,10 @@ export default async function HomePage({ params }: PageProps) {
         <section id="hero" className="snap-section" aria-labelledby="hero-title">
           <div className="container text-center">
             <span className="hero__eyebrow reveal">{dict.heroEyebrow}</span>
-            <h1 id="hero-title" className="reveal reveal-delay-1">{dict.heroSlogan}</h1>
+            <h1 id="hero-title" className="reveal reveal-delay-1">
+              <span className="hero__title-prefix">{dict.heroSloganPrefix}</span>
+              <span className="hero__title-main">{dict.heroSloganMain}</span>
+            </h1>
             <p className="hero__diocese reveal reveal-delay-2">{dict.heroDiocese}</p>
             <div
               className="hero__frequencies reveal reveal-delay-3"
@@ -199,12 +202,10 @@ export default async function HomePage({ params }: PageProps) {
               youtubeHref={station.contact.youtube}
               youtubeDisplay={station.contact.youtubDisplay}
               email={station.contact.email}
-              address={station.contact.address}
               labelWhatsapp={dict.contactWhatsapp}
               labelFacebook={dict.contactFacebook}
               labelYoutube={dict.contactYoutube}
               labelEmail={dict.contactEmail}
-              labelAddress={dict.contactAddress}
             />
           </div>
         </section>

@@ -12,7 +12,8 @@ export interface Dictionary {
 
   /* Hero */
   heroEyebrow: string;
-  heroSlogan: string;
+  heroSloganPrefix: string;
+  heroSloganMain: string;
   heroDiocese: string;
   frequenciesLabel: string;
   heroBroadcastHours: string;
@@ -140,8 +141,9 @@ const dictionaries: Dictionaries = {
 
     /* Hero */
     heroEyebrow:        'Radio Catholique RVE',
-    heroSlogan:         'La radio du diocèse de Bafoussam',
-    heroDiocese:        'Diocèse de Bafoussam, Cameroun',
+    heroSloganPrefix:   'La radio du',
+    heroSloganMain:     'Diocèse de Bafoussam',
+    heroDiocese:        'Priez, chantez, informez-vous',
     frequenciesLabel:   'Fréquences FM',
     heroBroadcastHours: 'Tous les jours de 5h30 à 23h',
 
@@ -172,7 +174,7 @@ const dictionaries: Dictionaries = {
 
     /* Contact */
     contactTitle:    'Nous contacter',
-    contactDescription: 'Rejoignez-nous sur nos réseaux ou écrivez-nous directement.',
+    contactDescription: 'Située dans l\'enceinte du CEPAB, près de la cathédrale de Bafoussam. Rejoignez-nous sur nos réseaux ou écrivez-nous directement.',
     contactWhatsapp: 'WhatsApp',
     contactFacebook: 'Facebook',
     contactYoutube:  'YouTube',
@@ -180,7 +182,7 @@ const dictionaries: Dictionaries = {
     contactAddress:  'Adresse',
 
     /* Scroll dots aria labels */
-    dotLabelHero:     'La radio du diocèse de Bafoussam',
+    dotLabelHero:     'Diocèse de Bafoussam',
     dotLabelAbout:    'À propos',
     dotLabelListen:   'Écouter en ligne',
     dotLabelDownload: 'Télécharger l\'application',
@@ -273,8 +275,9 @@ const dictionaries: Dictionaries = {
 
     /* Hero */
     heroEyebrow:        'RVE Catholic Radio',
-    heroSlogan:         'The Radio of the Diocese of Bafoussam',
-    heroDiocese:        'Diocese of Bafoussam, Cameroon',
+    heroSloganPrefix:   'The radio of the',
+    heroSloganMain:     'Diocese of Bafoussam',
+    heroDiocese:        'Pray, sing, stay informed',
     frequenciesLabel:   'FM Frequencies',
     heroBroadcastHours: 'Every day from 5:30 AM to 11 PM',
 
@@ -305,7 +308,7 @@ const dictionaries: Dictionaries = {
 
     /* Contact */
     contactTitle:    'Contact Us',
-    contactDescription: 'Find us on our channels or write to us directly.',
+    contactDescription: 'Located within the CEPAB grounds, near Bafoussam Cathedral. Find us on our channels or write to us directly.',
     contactWhatsapp: 'WhatsApp',
     contactFacebook: 'Facebook',
     contactYoutube:  'YouTube',
@@ -313,7 +316,7 @@ const dictionaries: Dictionaries = {
     contactAddress:  'Address',
 
     /* Scroll dots aria labels */
-    dotLabelHero:     'The Radio of the Diocese of Bafoussam',
+    dotLabelHero:     'Diocese of Bafoussam',
     dotLabelAbout:    'About',
     dotLabelListen:   'Listen Online',
     dotLabelDownload: 'Download the App',
