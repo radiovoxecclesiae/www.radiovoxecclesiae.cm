@@ -10,7 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return locales.flatMap((locale) =>
     routes.map((route) => ({
       url: `${base}/${locale}${route}`,
-      lastModified: new Date('2026-04-11'),
+      lastModified: new Date(),
       changeFrequency: route === '' ? 'weekly' : 'monthly' as const,
       priority: route === '' ? 1.0 : 0.6,
     }))

@@ -15,6 +15,7 @@ export interface Dictionary {
   heroSlogan: string;
   heroDiocese: string;
   frequenciesLabel: string;
+  heroBroadcastHours: string;
 
   /* Section Listen */
   listenTitle: string;
@@ -46,6 +47,7 @@ export interface Dictionary {
   contactDescription: string;
   contactWhatsapp: string;
   contactFacebook: string;
+  contactYoutube: string;
   contactEmail: string;
   contactAddress: string;
 
@@ -137,10 +139,11 @@ const dictionaries: Dictionaries = {
     skipLinkLabel: 'Passer au contenu principal',
 
     /* Hero */
-    heroEyebrow:      'Radio Catholique RVE',
-    heroSlogan:       "La voix de l'Église",
-    heroDiocese:      'Diocèse de Bafoussam, Cameroun',
-    frequenciesLabel: 'Fréquences FM',
+    heroEyebrow:        'Radio Catholique RVE',
+    heroSlogan:         'La radio du diocèse de Bafoussam',
+    heroDiocese:        'Diocèse de Bafoussam, Cameroun',
+    frequenciesLabel:   'Fréquences FM',
+    heroBroadcastHours: 'Tous les jours de 5h30 à 23h',
 
     /* Listen */
     listenTitle:       'Écouter en ligne',
@@ -172,11 +175,12 @@ const dictionaries: Dictionaries = {
     contactDescription: 'Rejoignez-nous sur nos réseaux ou écrivez-nous directement.',
     contactWhatsapp: 'WhatsApp',
     contactFacebook: 'Facebook',
+    contactYoutube:  'YouTube',
     contactEmail:    'Email',
     contactAddress:  'Adresse',
 
     /* Scroll dots aria labels */
-    dotLabelHero:     'La voix de l\'Église',
+    dotLabelHero:     'La radio du diocèse de Bafoussam',
     dotLabelAbout:    'À propos',
     dotLabelListen:   'Écouter en ligne',
     dotLabelDownload: 'Télécharger l\'application',
@@ -268,10 +272,11 @@ const dictionaries: Dictionaries = {
     skipLinkLabel: 'Skip to main content',
 
     /* Hero */
-    heroEyebrow:      'RVE Catholic Radio',
-    heroSlogan:       'The Voice of the Church',
-    heroDiocese:      'Diocese of Bafoussam, Cameroon',
-    frequenciesLabel: 'FM Frequencies',
+    heroEyebrow:        'RVE Catholic Radio',
+    heroSlogan:         'The Radio of the Diocese of Bafoussam',
+    heroDiocese:        'Diocese of Bafoussam, Cameroon',
+    frequenciesLabel:   'FM Frequencies',
+    heroBroadcastHours: 'Every day from 5:30 AM to 11 PM',
 
     /* Listen */
     listenTitle:       'Listen Online',
@@ -303,11 +308,12 @@ const dictionaries: Dictionaries = {
     contactDescription: 'Find us on our channels or write to us directly.',
     contactWhatsapp: 'WhatsApp',
     contactFacebook: 'Facebook',
+    contactYoutube:  'YouTube',
     contactEmail:    'Email',
     contactAddress:  'Address',
 
     /* Scroll dots aria labels */
-    dotLabelHero:     'The Voice of the Church',
+    dotLabelHero:     'The Radio of the Diocese of Bafoussam',
     dotLabelAbout:    'About',
     dotLabelListen:   'Listen Online',
     dotLabelDownload: 'Download the App',

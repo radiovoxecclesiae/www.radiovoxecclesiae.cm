@@ -12,11 +12,14 @@ export interface StationConfig {
   canonicalUrl: string;
   appUrl: string;
   frequencies: Frequency[];
+  broadcastHours: { fr: string; en: string };
   contact: {
     whatsapp: string;
     whatsappDisplay: string;
     facebook: string;
     facebookDisplay: string;
+    youtube: string;
+    youtubDisplay: string;
     email: string;
     address: string;
   };
@@ -42,11 +45,17 @@ const station: StationConfig = {
     { value: '103.7', label: '103.7 FM' },
     { value: '105.8', label: '105.8 FM' },
   ],
+  broadcastHours: {
+    fr: 'Tous les jours de 5h30 à 23h',
+    en: 'Every day from 5:30 AM to 11 PM',
+  },
   contact: {
     whatsapp: 'https://whatsapp.com/channel/0029VbBU76AHgZWcn3WWNA0L',
     whatsappDisplay: '+237 6 90 06 03 01',
     facebook: 'https://www.facebook.com/radiovoxecclesiae',
     facebookDisplay: 'Radio Vox Ecclesiae',
+    youtube: 'https://www.youtube.com/@RadioVoxEcclesiae',
+    youtubDisplay: 'Radio Vox Ecclesiae',
     email: 'radiovoxecclesiae@gmail.com',
     address: 'Bafoussam II, Cameroun',
   },

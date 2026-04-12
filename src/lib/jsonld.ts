@@ -20,11 +20,24 @@ export function buildJsonLd(locale: Locale = 'fr') {
       name: 'Diocèse de Bafoussam',
       containedInPlace: { '@type': 'Country', name: 'Cameroun' },
     },
+    broadcastAffiliateOf: {
+      '@type': 'Organization',
+      name: 'Diocèse de Bafoussam',
+    },
+    potentialAction: {
+      '@type': 'ListenAction',
+      target: station.appUrl,
+      startTime: 'T05:30',
+      endTime: 'T23:00',
+    },
     contactPoint: {
       '@type': 'ContactPoint',
       email: station.contact.email,
       contactType: 'customer service',
     },
-    sameAs: [station.contact.facebook],
+    sameAs: [
+      station.contact.facebook,
+      station.contact.youtube,
+    ],
   };
 }

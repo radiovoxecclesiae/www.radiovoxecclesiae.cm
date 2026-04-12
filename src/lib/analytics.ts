@@ -5,7 +5,7 @@ type AnalyticsEvent =
   | { name: 'listen_live_click' }
   | { name: 'donation_intent'; payment_method: 'mtn' | 'orange'; source_screen: string }
   | { name: 'sticky_bar_click'; action: 'support' | 'download'; platform?: AppDownloadPlatform }
-  | { name: 'contact_click'; channel: 'whatsapp' | 'facebook' | 'email' }
+  | { name: 'contact_click'; channel: 'whatsapp' | 'facebook' | 'youtube' | 'email' }
   | { name: 'language_switch'; from: string; to: string };
 
 export function trackEvent(event: AnalyticsEvent): void {

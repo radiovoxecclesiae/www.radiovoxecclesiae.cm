@@ -432,6 +432,13 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   gap: var(--space-xs);
 }
 
+.hero__broadcast-hours {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: var(--space-sm);
+  letter-spacing: 0.03em;
+}
+
 .frequency-badge {
   font-family: var(--font-body);
   font-weight: 700;
@@ -741,11 +748,13 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 .contact-card__icon { width: 44px; height: 44px; border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 .contact-card__icon--whatsapp { background: rgba(37, 211, 102, 0.15); }
 .contact-card__icon--facebook { background: rgba(24, 119, 242, 0.15); }
+.contact-card__icon--youtube  { background: rgba(255, 0, 0, 0.12); }
 .contact-card__icon--email    { background: rgba(253, 198, 86, 0.15); }
 .contact-card__icon--address  { background: rgba(255, 255, 255, 0.08); }
 .contact-card__icon svg { width: 24px; height: 24px; }
 .contact-card__icon--whatsapp svg { fill: #25D366; }
 .contact-card__icon--facebook svg { fill: #1877F2; }
+.contact-card__icon--youtube  svg { fill: #FF0000; }
 .contact-card__icon--email svg    { fill: var(--brand-secondary-container); }
 .contact-card__icon--address svg  { fill: var(--text-muted); }
 

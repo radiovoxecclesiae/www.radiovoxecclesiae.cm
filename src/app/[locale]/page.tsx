@@ -24,8 +24,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!locales.includes(locale as Locale)) return {};
 
   const title = locale === 'fr'
-    ? 'Radio Vox Ecclesiae — La voix de l\'Église | 97.3 FM Bafoussam'
-    : 'Radio Vox Ecclesiae — The Voice of the Church | 97.3 FM Bafoussam';
+    ? 'Radio Vox Ecclesiae — La radio du diocèse de Bafoussam | 97.3 FM'
+    : 'Radio Vox Ecclesiae — The Radio of the Diocese of Bafoussam | 97.3 FM';
   const description = station.description[locale as Locale];
   const ogImage = `${station.canonicalUrl}${station.ogImageUrl}`;
 
@@ -105,6 +105,7 @@ export default async function HomePage({ params }: PageProps) {
                 <span key={f.value} className="frequency-badge">{f.label}</span>
               ))}
             </div>
+            <p className="hero__broadcast-hours reveal reveal-delay-4">{dict.heroBroadcastHours}</p>
           </div>
         </section>
 
@@ -195,10 +196,13 @@ export default async function HomePage({ params }: PageProps) {
               whatsappDisplay={station.contact.whatsappDisplay}
               facebookHref={station.contact.facebook}
               facebookDisplay={station.contact.facebookDisplay}
+              youtubeHref={station.contact.youtube}
+              youtubeDisplay={station.contact.youtubDisplay}
               email={station.contact.email}
               address={station.contact.address}
               labelWhatsapp={dict.contactWhatsapp}
               labelFacebook={dict.contactFacebook}
+              labelYoutube={dict.contactYoutube}
               labelEmail={dict.contactEmail}
               labelAddress={dict.contactAddress}
             />
