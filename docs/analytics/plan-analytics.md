@@ -29,7 +29,7 @@ Radio Vox Ecclesiae est composée de trois plateformes :
 |------------|-----|-----------------|-----------------|
 | Site corporate | `www.radiovoxecclesiae.cm` | Next.js | gtag direct en place — à migrer vers GTM |
 | App web radio | `app.radiovoxecclesiae.cm` | Expo (React Native Web) | Rien en place |
-| App Android | APK (non publié sur Play Store) | Expo (React Native) | Rien en place — à faire plus tard |
+| App Android | APK (non publié sur Play Store) | Expo (React Native) | Firebase Analytics SDK intégré — en attente `google-services.json` |
 
 ### Objectifs du tracking
 
@@ -90,7 +90,7 @@ GTM collecte les événements sur ton site, puis les envoie à GA4 qui les stock
 **C'est quoi ?**  
 L'équivalent de GA4 pour les applications mobiles natives (Android/iOS). Intégré directement dans le code de l'app via un SDK (bibliothèque).
 
-**Pour l'instant :** non implémenté — périmètre mobile remis à plus tard.
+**Statut :** implémenté pour Android (Phase 6). Le SDK `@react-native-firebase/analytics` est intégré dans l'app Expo. La collecte automatique est désactivée par défaut (`firebase.json`) et activée uniquement après consentement utilisateur.
 
 ---
 
@@ -136,11 +136,11 @@ Sans ça, tu risques de collecter des données sans le consentement de l'utilisa
           │  └───────────────┘  │
           └─────────────────────┘
 
-          App Android (plus tard)
+          App Android (implémenté — Phase 6)
           ┌─────────────────────┐
-          │  Firebase Analytics │  → SDK intégré dans l'APK Expo
-          │  (même projet       │
-          │   Firebase existant)│
+          │  Firebase Analytics │  → SDK @react-native-firebase/analytics
+          │  (même projet       │     intégré dans l'APK Expo
+          │   Firebase / GA4)   │     collecte désactivée par défaut
           └─────────────────────┘
 ```
 
@@ -267,26 +267,26 @@ Convention de nommage : **snake_case, préfixé par domaine** (max 40 caractère
 
 | Événement | Quand | Paramètres |
 |-----------|-------|------------|
-| `player_play` | L'utilisateur démarre l'écoute | `program_title`, `program_category`, `player_source`, `session_id` |
-| `player_pause` | L'utilisateur met en pause | `program_title`, `listen_duration_sec`, `session_id` |
-| `player_stop` | L'utilisateur arrête définitivement | `program_title`, `listen_duration_sec`, `session_id` |
-| `player_error` | Erreur de stream | `error_type`, `error_message`, `program_title` |
+| `player_play` | L'utilisateur démarre l'écoute | `program_title`, `program_category`, `player_source`, `listen_session_id` |
+| `player_pause` | L'utilisateur met en pause | `program_title`, `listen_duration_sec`, `listen_session_id` |
+| `player_error` | Erreur de stream | `error_type`, `program_title` |
 | `player_retry` | Tentative de reconnexion automatique | `retry_attempt` (1, 2 ou 3), `program_title` |
-| `player_buffer_time` | Temps avant que l'audio démarre | `buffer_duration_ms`, `connection_type` |
+| `player_buffer_time` | Temps avant que l'audio démarre | `buffer_duration_ms` |
 
 **Détail des paramètres player :**
 
 ```
-program_title      : nom du programme en cours (ex: "Messe du matin")
-                     → croisé avec la grille WAT au moment du play
-program_category   : catégorie (ex: "messe", "emission", "musique")
-player_source      : d'où vient le déclenchement
-                     → "hero_button" | "mini_player" | "notification"
-session_id         : identifiant unique de la session d'écoute (UUID généré au play)
-                     → permet de relier play → pause → stop d'une même écoute
-listen_duration_sec: durée en secondes depuis le dernier play
-retry_attempt      : numéro de la tentative (1, 2 ou 3 max)
-buffer_duration_ms : millisecondes entre le clic Play et le début du son
+program_title       : nom du programme en cours (ex: "Messe du matin")
+                      → croisé avec la grille WAT au moment du play
+program_category    : catégorie (ex: "messe", "emission", "musique")
+player_source       : d'où vient le déclenchement
+                      → "hero_button" | "mini_player" | "notification"
+listen_session_id   : identifiant unique de la session d'écoute (généré au play)
+                      → permet de relier play → pause d'une même écoute
+                      → renommé depuis session_id (réservé par GA4)
+listen_duration_sec : durée en secondes depuis le dernier play
+retry_attempt       : numéro de la tentative (1, 2 ou 3 max)
+buffer_duration_ms  : millisecondes entre le clic Play et le début du son
 ```
 
 ---
@@ -319,14 +319,14 @@ platform         : "web_app" | "android"
 
 | Événement | Quand | Paramètres |
 |-----------|-------|------------|
-| `content_share` | Clic sur le bouton Partager | `share_method`, `content_type`, `content_id`, `program_title` |
+| `content_share` | Clic sur le bouton Partager | `share_method`, `content_type`, `program_title` |
 | `content_program_view` | Consultation de la grille de programme | `day_selected`, `program_count_visible` |
 | `content_day_select` | Changement de jour dans la grille | `day_from`, `day_to` |
 
 ```
 share_method   : "whatsapp" | "copy_link" | "native_share" | "facebook" | "sms"
 content_type   : "live_stream" | "programme" | "station"
-content_id     : identifiant du contenu partagé
+program_title  : nom du programme en cours au moment du partage
 ```
 
 ---
@@ -346,12 +346,10 @@ content_id     : identifiant du contenu partagé
 | Événement | Quand | Paramètres |
 |-----------|-------|------------|
 | `donation_intent` | Clic sur un bouton de don | `payment_method`, `source_screen` |
-| `donation_number_copy` | Copie du numéro de don | `provider` |
 
 ```
 payment_method : "mtn" | "orange"
 source_screen  : "home" | "support" | "sticky_bar"
-provider       : "mtn" | "orange"
 ```
 
 ---
@@ -570,7 +568,7 @@ function generateShareId(): string {
 **Composants à mettre à jour (étape 3.6) :**
 - `src/components/ListenButton.tsx` → `listen_live_click`
 - `src/components/StoreBadges.tsx` → `app_download_click`
-- `src/components/DonateCard.tsx` → `donation_number_copy`
+- `src/components/DonateCard.tsx` → `donation_intent`
 - `src/components/StickyBar.tsx` → `sticky_bar_click`
 - `src/components/ContactGrid.tsx` → `contact_click`
 - `src/components/Header.tsx` → `language_switch`
@@ -608,32 +606,35 @@ function generateShareId(): string {
 
 ---
 
-### Phase 6 — App Android *(plus tard)*
+### Phase 6 — App Android (Firebase Analytics)
 
-| Étape | Action |
-|-------|--------|
-| 6.1 | Ajouter Firebase Analytics SDK dans le projet Expo |
-| 6.2 | Créer un data stream Android dans GA4 |
-| 6.3 | Télécharger et intégrer `google-services.json` |
-| 6.4 | Réutiliser le même dictionnaire d'événements (section 6) |
-| 6.5 | Tester avec Firebase DebugView |
+| Étape | Action | Statut |
+|-------|--------|--------|
+| 6.1 | Ajouter `@react-native-firebase/app` + `@react-native-firebase/analytics` | Done |
+| 6.2 | Configurer le plugin Expo dans `app.json` | Done |
+| 6.3 | Désactiver la collecte auto (`firebase.json` → `analytics_auto_collection_enabled: false`) | Done |
+| 6.4 | Implémenter `trackEvent()` natif avec Firebase Analytics + guard consent | Done |
+| 6.5 | Brancher le consentement (`setAnalyticsCollectionEnabled` + `setConsent`) | Done |
+| 6.6 | Créer un projet Firebase et télécharger `google-services.json` | **À faire** |
+| 6.7 | Créer un data stream Android dans GA4 | **À faire** |
+| 6.8 | Tester avec Firebase DebugView | **À faire** |
 
 ---
 
 ## 10. Périmètre et priorités
 
-### Ce qu'on fait maintenant
+### Fait
 
 - [x] Architecture décidée
-- [ ] **Phase 1** — Créer les data streams GA4
-- [ ] **Phase 2** — Configurer GTM
-- [ ] **Phase 3** — Migrer le corporate vers GTM
-- [ ] **Phase 4** — Instrumenter l'app web radio
-- [ ] **Phase 5** — Valider et créer les rapports
+- [x] **Phase 1** — Créer les data streams GA4
+- [x] **Phase 2** — Configurer GTM
+- [x] **Phase 3** — Migrer le corporate vers GTM
+- [x] **Phase 4** — Instrumenter l'app web radio
+- [x] **Phase 5** — Valider et créer les rapports
+- [x] **Phase 6** — Firebase Analytics Android (code) — en attente `google-services.json`
 
-### Ce qu'on reporte à plus tard
+### À faire plus tard
 
-- App Android (Firebase Analytics SDK)
 - iOS (pas encore disponible)
 - Server-side tracking (events côté API)
 - Alertes avancées et tableaux de bord Looker Studio
@@ -653,4 +654,4 @@ function generateShareId(): string {
 
 ---
 
-*Document généré le 2026-04-11 — à mettre à jour au fil de l'implémentation.*
+*Document généré le 2026-04-11 — dernière mise à jour le 2026-04-14.*

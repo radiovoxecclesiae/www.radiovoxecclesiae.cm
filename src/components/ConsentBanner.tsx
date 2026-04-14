@@ -2,11 +2,13 @@
 
 import { useEffect, useState } from 'react';
 
+import { setAnalyticsConsent } from '@/lib/analytics';
+
 const STORAGE_KEY = 'rve_analytics_consent';
 
 function grantConsent(): void {
   if (typeof window === 'undefined') return;
-
+  setAnalyticsConsent(true);
   window.dataLayer = window.dataLayer || [];
   window.dataLayer.push({ event: 'consent_granted' });
 }

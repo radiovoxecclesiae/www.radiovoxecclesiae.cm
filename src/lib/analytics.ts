@@ -8,8 +8,14 @@ type AnalyticsEvent =
   | { name: 'contact_click'; channel: 'whatsapp' | 'facebook' | 'youtube' | 'email' }
   | { name: 'language_switch'; from: string; to: string };
 
+let consentGranted = false;
+
+export function setAnalyticsConsent(granted: boolean): void {
+  consentGranted = granted;
+}
+
 export function trackEvent(event: AnalyticsEvent): void {
-  if (typeof window === 'undefined') return;
+  if (!consentGranted || typeof window === 'undefined') return;
 
   const { name, ...params } = event;
 
